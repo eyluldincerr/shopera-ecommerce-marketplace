@@ -1,0 +1,292 @@
+/* src/styles/seller/sellerNotifications.css */
+
+.seller-notifications-content {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.seller-notifications-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.seller-notifications-heading h1 {
+  margin: 0;
+  color: #11143f;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.seller-notifications-heading p {
+  margin-top: 8px;
+  color: #8d91a8;
+  font-size: 13px;
+}
+
+.seller-notifications-read-button {
+  height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 12px;
+  background: #2f2be8;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.seller-notifications-read-button:hover {
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   Filters
+=========================== */
+
+.seller-notifications-filters {
+  display: flex;
+  max-width: 100%;
+  gap: 12px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.seller-notifications-filter {
+  height: 40px;
+  padding: 0 18px;
+  border: 1px solid #e6e7ef;
+  background: white;
+  border-radius: 12px;
+  color: #626781;
+  cursor: pointer;
+  transition: .2s;
+  font-size: 12px;
+}
+
+.seller-notifications-filter:hover {
+  background: #f6f6ff;
+}
+
+.seller-notifications-filter--active {
+  background: #2f2be8;
+  color: white;
+  border-color: #2f2be8;
+}
+
+/* ===========================
+   List
+=========================== */
+
+.seller-notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.seller-notification-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px;
+
+  background: white;
+
+  border: 1px solid #ececec;
+
+  border-radius: 18px;
+
+  transition: .2s;
+}
+
+.seller-notification-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.05);
+}
+
+.seller-notification-card__left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===========================
+   Icon
+=========================== */
+
+.seller-notification-card__icon {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 auto;
+
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Order */
+
+.seller-notification-card__icon--order {
+  background: #eef1ff;
+  color: #3221db;
+}
+
+/* Review */
+
+.seller-notification-card__icon--review {
+  background: #e9fff1;
+  color: #18b65b;
+}
+
+/* Return */
+
+.seller-notification-card__icon--return {
+  background: #fff5e8;
+  color: #ff9800;
+}
+
+/* Inventory */
+
+.seller-notification-card__icon--inventory {
+  background: #fff0f4;
+  color: #ff4d7a;
+}
+
+/* ===========================
+   Text
+=========================== */
+
+.seller-notification-card__content {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.seller-notification-card__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.seller-notification-card__top h3 {
+  margin: 0;
+  color: #11143f;
+  font-size: 15px;
+}
+
+.seller-notification-card__content p {
+  margin: 8px 0;
+  color: #6d728b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.seller-notification-card__content span {
+  color: #9a9db3;
+  font-size: 12px;
+}
+
+/* ===========================
+   Unread
+=========================== */
+
+.seller-notification-card__unread {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3221db;
+}
+
+/* ===========================
+   Button
+=========================== */
+
+.seller-notification-card__button {
+
+  min-width: 118px;
+
+  height: 42px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #f3f4ff;
+
+  color: #3221db;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.seller-notification-card__button:hover {
+
+  background: #3221db;
+
+  color: white;
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:900px){
+
+.seller-notifications-heading {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.seller-notifications-filter {
+  flex: 0 0 auto;
+}
+
+.seller-notification-card{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:20px;
+max-width:100%;
+
+}
+
+.seller-notification-card__left {
+  width: 100%;
+}
+
+.seller-notification-card__button{
+
+width:100%;
+
+}
+
+}

@@ -1,0 +1,138 @@
+.checkout-panel--shipping {
+  border-color: #d7dcf4;
+}
+
+.checkout-panel--shipping .checkout-panel__header {
+  grid-template-columns: auto 1fr auto;
+}
+
+.checkout-panel--shipping .checkout-panel__icon {
+  background-color: #eadfff;
+  color: #6c46ff;
+}
+
+.checkout-recipient {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e6e9f3;
+}
+
+.checkout-recipient h2 {
+  margin: 0;
+  color: #090f8f;
+  font-size: 18px;
+}
+
+.checkout-save-address {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 10px;
+  width: fit-content;
+  border: 0;
+  background-color: transparent;
+  color: #747785;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.checkout-save-address span {
+  width: 24px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background-color: #3e35ff;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.checkout-save-address:hover {
+  color: #090f8f;
+}
+
+.checkout-address-message {
+  margin: 0;
+  color: #090f8f;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.checkout-saved-addresses {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.checkout-saved-address {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid #dfe3f4;
+  border-radius: 8px;
+  background-color: #fbfcff;
+  padding: 12px 14px;
+}
+
+.checkout-saved-address--active {
+  border-color: #3e35ff;
+  background-color: #f4f5ff;
+}
+
+.checkout-saved-address div:first-child {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.checkout-saved-address strong {
+  color: #090f8f;
+  font-size: 13px;
+}
+
+.checkout-saved-address span,
+.checkout-saved-address small {
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.checkout-saved-address__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.checkout-saved-address__actions button {
+  min-height: 30px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 10px;
+  color: #090f8f;
+  background-color: #eef1ff;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.checkout-saved-address__actions button:first-child {
+  color: #ffffff;
+  background-color: #3e35ff;
+}
+
+@media (max-width: 560px) {
+  .checkout-saved-address {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-saved-address__actions {
+    justify-content: stretch;
+  }
+
+  .checkout-saved-address__actions button {
+    flex: 1;
+  }
+}

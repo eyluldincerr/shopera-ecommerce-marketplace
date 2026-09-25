@@ -1,0 +1,344 @@
+@import "./styles/variables.css";
+@import "./styles/global.css";
+
+@import "./styles/layout/navbar.css";
+@import "./styles/layout/notifications.css";
+
+@import "./styles/home/categoryNav.css";
+@import "./styles/home/storeStories.css";
+@import "./styles/home/storyViewer.css";
+@import "./styles/home/heroCarousel.css";
+@import "./styles/home/topBrandsOffers.css";
+@import "./styles/home/homeCategoryRail.css";
+@import "./styles/home/buyerMotion.css";
+
+@import "./styles/product/productGrid.css";
+@import "./styles/product/productCard.css";
+@import "./styles/product/productDetail.css";
+@import "./styles/product/productSectionPreview.css";
+@import "./styles/product/infiniteProductGrid.css";
+@import "./styles/product/productFilters.css";
+@import "./styles/product/productSort.css";
+
+@import "./styles/collection/collectionPage.css";
+@import "./styles/catalog/categoryPage.css";
+@import "./styles/catalog/collectionPage.css";
+@import "./styles/catalog/searchResultsPage.css";
+@import "./styles/cart/cartDrawer.css";
+@import "./styles/checkout/checkout.css";
+@import "./styles/checkout/checkoutShipping.css";
+@import "./styles/checkout/checkoutReview.css";
+@import "./styles/wishlist/wishlist.css";
+@import "./styles/account/buyerAccount.css";
+@import "./styles/account/profilePage.css";
+@import "./styles/account/addressesPage.css";
+@import "./styles/account/couponsPage.css";
+@import "./styles/account/supportPage.css";
+@import "./styles/account/orderHistoryPage.css";
+@import "./styles/account/orderDetailPage.css";
+@import "./styles/account/notificationsPage.css";
+@import "./styles/auth/signIn.css";
+@import "./styles/auth/authRecovery.css";
+@import "./styles/seller/sellerDashboard.css";
+@import "./styles/auth/RegisterPage.css";
+
+/* Buyer homepage type system. The Navbar is intentionally outside this scope. */
+.buyer-home-page {
+  font-family: var(--font-family-body);
+}
+
+.buyer-home-page h1,
+.buyer-home-page h2,
+.buyer-home-page h3 {
+  font-family: var(--font-family-display);
+  text-wrap: balance;
+}
+
+/* Buyer visual unification layer */
+.buyer-home-page,
+.collection-page,
+.product-detail-page,
+.checkout-page,
+.cart-page,
+.profile-page,
+.addresses-page,
+.coupons-page,
+.support-page,
+.orders-page,
+.notifications-page,
+.not-found-page {
+  background:
+    radial-gradient(circle at 96% 0%, rgba(17, 142, 153, 0.11), transparent 28%),
+    linear-gradient(180deg, #f8f9ff 0%, var(--color-background) 360px);
+}
+.collection-filter,
+.collection-toolbar,
+.collection-page__state,
+.product-card,
+.product-info-box,
+.product-purchase,
+.product-side-card,
+.product-tabs,
+.related-products,
+.checkout-panel,
+.checkout-summary,
+.checkout-empty,
+.cart-item,
+.cart-summary,
+.profile-mini-card,
+.profile-side-nav,
+.profile-card,
+.buyer-account-page__panel,
+.address-card,
+.address-add-card,
+.addresses-empty,
+.coupon-stats article,
+.coupon-card,
+.coupons-empty,
+.support-hero,
+.support-topic-card,
+.support-faq-panel,
+.support-contact-card,
+.support-hours-card,
+.support-ticket-card,
+.support-empty-inline,
+.order-row,
+.orders-empty,
+.order-detail__header,
+.order-timeline,
+.order-detail-card,
+.notifications-page__header,
+.notifications-page__filters,
+.notifications-page__state,
+.not-found-page__content,
+.wishlist-item,
+.wishlist-empty {
+  border-radius: var(--radius-card);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+.collection-filter:hover,
+.product-card:hover,
+.address-card:hover,
+.address-add-card:hover,
+.coupon-card:hover,
+.support-topic-card:hover,
+.support-ticket-card:hover,
+.order-row:hover,
+.wishlist-item:hover {
+  border-color: rgba(145, 75, 255, 0.28);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.collection-see-more button,
+.collection-page__back-link,
+.product-purchase__cart-button,
+.product-detail-page__back,
+.checkout-actions__primary,
+.checkout-empty__link,
+.cart-summary__checkout,
+.cart-drawer__shop-button,
+.addresses-primary-button,
+.addresses-empty button,
+.address-form__actions button:last-child,
+.coupons-primary-button,
+.coupons-empty button,
+.coupon-form__actions button:last-child,
+.support-search button,
+.support-section__header button,
+.support-contact-card button,
+.support-form-actions button:last-child,
+.support-chat-form button,
+.orders-primary-link,
+.orders-empty a,
+.order-detail-actions a,
+.order-detail-actions button:not(.order-detail-actions__cancel),
+.wishlist-item__cart,
+.wishlist-empty__shop-button {
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--gradient-brand);
+  color: var(--color-white);
+  box-shadow: 0 14px 28px rgba(83, 84, 205, 0.24);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    filter var(--transition-base);
+}
+
+.collection-see-more button:hover,
+.checkout-actions__primary:hover,
+.cart-summary__checkout:hover,
+.cart-drawer__shop-button:hover,
+.addresses-primary-button:hover,
+.coupons-primary-button:hover,
+.support-search button:hover,
+.orders-primary-link:hover,
+.wishlist-item__cart:hover,
+.wishlist-empty__shop-button:hover {
+  filter: saturate(1.08);
+  box-shadow: 0 18px 34px rgba(83, 84, 205, 0.3);
+  transform: translateY(-2px);
+}
+
+.checkout-actions__back,
+.product-purchase__wishlist-button,
+.address-card__actions button,
+.address-form__actions button,
+.coupon-card__actions button,
+.coupon-form__actions button,
+.support-form-actions button:first-child,
+.order-row__actions button,
+.wishlist-page__clear-button,
+.collection-filter__header button {
+  border-radius: var(--radius-button);
+}
+
+.address-card__actions .address-card__delete-button,
+.coupon-card__remove-button,
+.order-row__actions .order-row__cancel,
+.order-detail-actions__cancel {
+  border-color: #ffd2d8;
+  color: #d82b45;
+}
+
+.profile-form-group input,
+.address-form__field input,
+.address-form__field select,
+.coupon-form input,
+.support-ticket-form input,
+.support-ticket-form select,
+.support-ticket-form textarea,
+.support-chat-form input,
+.checkout-field input,
+.collection-filter__search,
+.collection-sort select,
+.cart-summary__promo-input,
+.support-search input {
+  border-radius: var(--radius-button);
+  border-color: var(--color-border);
+}
+
+.profile-form-group input:focus,
+.address-form__field input:focus,
+.address-form__field select:focus,
+.coupon-form input:focus,
+.support-ticket-form input:focus,
+.support-ticket-form select:focus,
+.support-ticket-form textarea:focus,
+.support-chat-form input:focus,
+.checkout-field input:focus,
+.collection-filter__search:focus,
+.collection-sort select:focus,
+.cart-summary__promo-input:focus,
+.support-search input:focus {
+  border-color: var(--color-purple);
+  box-shadow: 0 0 0 3px rgba(145, 75, 255, 0.12);
+  outline: none;
+}
+
+.address-modal__panel,
+.coupon-modal__panel,
+.support-modal__panel {
+  border-radius: var(--radius-card);
+}
+
+.address-modal__close,
+.coupon-modal__close,
+.support-modal__close {
+  border-radius: var(--radius-button);
+}
+
+.order-status--delivered,
+.coupon-badge--active,
+.address-card__badge,
+.support-status--resolved {
+  background: #effcf4;
+  color: #087537;
+}
+
+.order-status--processing,
+.support-status--inprogress {
+  background: #fff6e8;
+  color: #aa5c00;
+}
+
+.order-status--cancelled,
+.order-status--returned,
+.coupon-badge--expired,
+.support-priority--high {
+  background: #fff1f3;
+  color: #b42332;
+}
+
+.order-status--confirmed,
+.order-payment-status,
+.support-status--open {
+  background: #eefaff;
+  color: #007b90;
+}
+
+.order-status--shipped,
+.coupon-badge--used,
+.support-priority--medium {
+  background: #f3efff;
+  color: #6c46ff;
+}
+
+.not-found-page {
+  min-height: calc(100vh - 84px);
+  padding: 72px 0;
+}
+
+.not-found-page__content {
+  max-width: 560px;
+  padding: 48px;
+  text-align: center;
+}
+
+.not-found-page__code {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--color-purple);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.not-found-page h1 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.not-found-page p {
+  margin: 14px auto 28px;
+  max-width: 340px;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .profile-page,
+  .addresses-page,
+  .coupons-page,
+  .support-page,
+  .orders-page {
+    padding-inline: 16px;
+  }
+
+  .support-hero {
+    border-radius: 16px;
+  }
+
+  .not-found-page {
+    padding: 48px 16px;
+  }
+
+  .not-found-page__content {
+    padding: 36px 22px;
+  }
+
+
+}

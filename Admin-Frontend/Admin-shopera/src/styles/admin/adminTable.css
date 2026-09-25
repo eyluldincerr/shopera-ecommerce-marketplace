@@ -1,0 +1,750 @@
+.admin-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Success and completed statuses */
+
+.admin-status-badge-active,
+.admin-status-badge-approved,
+.admin-status-badge-confirmed,
+.admin-status-badge-paid,
+.admin-status-badge-delivered,
+.admin-status-badge-converted,
+.admin-status-badge-operational {
+  color: #148255;
+  background: #e5f8ed;
+}
+
+/* Neutral and inactive statuses */
+
+.admin-status-badge-inactive,
+.admin-status-badge-no-payment,
+.admin-status-badge-no-shipment,
+.admin-status-badge-abandoned,
+.admin-status-badge-not-operational,
+.admin-status-badge-unknown {
+  color: #697386;
+  background: #edf0f4;
+}
+
+/* Pending and work-in-progress statuses */
+
+.admin-status-badge-pending,
+.admin-status-badge-authorized,
+.admin-status-badge-processing,
+.admin-status-badge-packed {
+  color: #315fc5;
+  background: #eaf1ff;
+}
+
+/* Shipping statuses */
+
+.admin-status-badge-shipped,
+.admin-status-badge-in-transit {
+  color: #7446b4;
+  background: #f2eaff;
+}
+
+/* Draft status */
+
+.admin-status-badge-draft {
+  color: #6d4aa5;
+  background: #f1ebfa;
+}
+
+/* Warning and reversible statuses */
+
+.admin-status-badge-suspended,
+.admin-status-badge-out-of-stock,
+.admin-status-badge-refunded,
+.admin-status-badge-partially-refunded,
+.admin-status-badge-returned,
+.admin-status-badge-limit-reached {
+  color: #b46b17;
+  background: #fff1dc;
+}
+
+/* Failed and terminated statuses */
+
+.admin-status-badge-rejected,
+.admin-status-badge-deleted,
+.admin-status-badge-cancelled,
+.admin-status-badge-failed,
+.admin-status-badge-expired,
+.admin-status-badge-closed {
+  color: #cf4055;
+  background: #ffedf0;
+}
+
+.admin-data-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-data-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+}
+
+.admin-data-table th {
+  padding: 12px 13px;
+  color: #717b92;
+  background: #f8f9fc;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.admin-data-table td {
+  padding: 14px 13px;
+  border-top: 1px solid #eceff4;
+  color: #505b74;
+  font-size: 10px;
+  vertical-align: middle;
+}
+
+.admin-data-table tbody tr:hover {
+  background: #fafbff;
+}
+
+.admin-user-table-profile {
+  min-width: 225px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.admin-user-table-avatar {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #2847d7;
+  background: #ebefff;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.admin-user-table-profile > div:last-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-user-table-profile strong {
+  color: #1a2446;
+  font-size: 11px;
+}
+
+.admin-user-table-profile span {
+  color: #8992a7;
+  font-size: 9px;
+}
+
+.admin-table-role {
+  padding: 6px 9px;
+  border-radius: 7px;
+  color: #4f5b75;
+  background: #f0f2f6;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.admin-table-order-count {
+  font-weight: 700;
+}
+
+.admin-table-actions-column {
+  text-align: right !important;
+}
+
+.admin-table-view-button {
+  padding: 8px 11px;
+  border: 1px solid #b9c3f7;
+  border-radius: 8px;
+  color: #2949d7;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-table-view-button:hover {
+  color: #ffffff;
+  border-color: #2949d7;
+  background: #2949d7;
+}
+
+.admin-table-view-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.admin-empty-table-message {
+  padding: 45px 20px !important;
+  color: #8992a7 !important;
+  text-align: center !important;
+}
+
+.admin-seller-table-profile {
+  min-width: 210px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.admin-seller-table-avatar {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #2949d7;
+  background: #ebefff;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.admin-seller-table-profile > div:last-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-seller-table-profile strong {
+  color: #1a2446;
+  font-size: 11px;
+}
+
+.admin-seller-table-profile span {
+  color: #8992a7;
+  font-size: 9px;
+}
+
+.admin-table-category {
+  padding: 6px 9px;
+  border-radius: 7px;
+  color: #4f5b75;
+  background: #f0f2f6;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.admin-document-count {
+  color: #56637d;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.admin-product-table-profile {
+  min-width: 230px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.admin-product-table-image {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: 1px solid #e2e6ef;
+  border-radius: 10px;
+  color: #3152d8;
+  background: #f4f6ff;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.admin-product-table-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-product-table-profile > div:last-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-product-table-profile strong {
+  color: #1a2446;
+  font-size: 11px;
+}
+
+.admin-product-table-profile span {
+  color: #8992a7;
+  font-size: 9px;
+}
+
+.admin-product-price {
+  color: #26314d;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.admin-product-stock-available {
+  color: #16865a;
+  font-weight: 700;
+}
+
+.admin-product-stock-empty {
+  color: #cf4055;
+  font-weight: 700;
+}
+
+.admin-category-name-cell {
+  min-width: 190px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-category-icon {
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.admin-category-main-icon {
+  color: #3152d8;
+  background: #eaf0ff;
+}
+
+.admin-category-child-icon {
+  color: #8550c9;
+  background: #f2eaff;
+}
+
+.admin-category-name-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-category-name-content strong {
+  color: #1a2446;
+  font-size: 11px;
+}
+
+.admin-category-name-content span {
+  color: #8992a7;
+  font-size: 9px;
+}
+
+.admin-category-parent-badge,
+.admin-category-main-badge {
+  padding: 6px 9px;
+  border-radius: 7px;
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.admin-category-parent-badge {
+  color: #7446b4;
+  background: #f2eaff;
+}
+
+.admin-category-main-badge {
+  color: #3152d8;
+  background: #eaf0ff;
+}
+
+.admin-category-description-cell {
+  display: block;
+  max-width: 260px;
+  color: #657089;
+  line-height: 1.5;
+}
+
+.admin-category-count {
+  min-width: 28px;
+  padding: 5px 8px;
+  border-radius: 7px;
+  color: #34415e;
+  background: #f0f2f6;
+  display: inline-flex;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.admin-category-manager {
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-category-manager strong {
+  color: #34405c;
+  font-size: 10px;
+}
+
+.admin-category-manager span {
+  color: #8992a7;
+  font-size: 9px;
+}
+
+.admin-category-actions {
+  display: inline-flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.admin-category-edit-button,
+.admin-category-delete-button {
+  padding: 8px 10px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-category-edit-button {
+  border: 1px solid #b9c3f7;
+  color: #2949d7;
+  background: #ffffff;
+}
+
+.admin-category-delete-button {
+  border: 1px solid #efbcc5;
+  color: #d43d53;
+  background: #fff5f6;
+}
+
+.admin-order-table-id {
+  min-width: 155px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-order-table-id > div {
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  color: #3152d8;
+  background: #eaf0ff;
+  display: grid;
+  place-items: center;
+}
+
+.admin-order-table-id section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-order-table-id strong {
+  color: #1a2446;
+  font-size: 11px;
+}
+
+.admin-order-table-id span {
+  color: #8992a7;
+  font-size: 9px;
+}
+
+.admin-order-customer-cell {
+  min-width: 175px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-order-customer-cell strong {
+  color: #28324f;
+  font-size: 10px;
+}
+
+.admin-order-customer-cell span {
+  color: #8992a7;
+  font-size: 9px;
+}
+
+.admin-order-total-cell {
+  color: #3152d8;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.admin-coupon-code-cell {
+  min-width: 165px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-coupon-code-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  color: #3152d8;
+  background: #eaf0ff;
+  display: grid;
+  place-items: center;
+}
+
+.admin-coupon-code-cell > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-coupon-code-cell strong {
+  color: #1a2446;
+  font-size: 11px;
+}
+
+.admin-coupon-code-cell span {
+  color: #8992a7;
+  font-size: 9px;
+}
+
+.admin-coupon-type-badge {
+  padding: 6px 9px;
+  border-radius: 7px;
+  color: #3152d8;
+  background: #eaf0ff;
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.admin-coupon-discount-value {
+  color: #16865a;
+  font-size: 12px;
+}
+
+.admin-coupon-usage-cell {
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-coupon-usage-cell strong {
+  color: #34405c;
+  font-size: 10px;
+}
+
+.admin-coupon-usage-cell span {
+  color: #8992a7;
+  font-size: 8px;
+}
+
+.admin-coupon-expiry-date {
+  display: block;
+  min-width: 135px;
+  color: #59647c;
+  font-size: 9px;
+}
+
+.admin-coupon-locked-badge,
+.admin-coupon-unlocked-badge {
+  padding: 6px 9px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.admin-coupon-locked-badge {
+  color: #7446b4;
+  background: #f2eaff;
+}
+
+.admin-coupon-unlocked-badge {
+  color: #16865a;
+  background: #e5f8ed;
+}
+
+.admin-coupon-actions {
+  display: inline-flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.admin-coupon-edit-button,
+.admin-coupon-delete-button {
+  padding: 8px 10px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-coupon-edit-button {
+  border: 1px solid #b9c3f7;
+  color: #2949d7;
+  background: #ffffff;
+}
+
+.admin-coupon-delete-button {
+  border: 1px solid #efbcc5;
+  color: #d43d53;
+  background: #fff5f6;
+}
+
+.admin-coupon-delete-button:disabled {
+  color: #9aa1b0;
+  border-color: #dfe2e8;
+  background: #f3f4f7;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.admin-report-entity-cell {
+  min-width: 190px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-report-entity-cell > div {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  color: #3152d8;
+  background: #eaf0ff;
+  display: grid;
+  place-items: center;
+}
+
+.admin-report-entity-cell section {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-report-entity-cell strong {
+  color: #27314e;
+  font-size: 10px;
+}
+
+.admin-report-entity-cell span {
+  color: #8992a7;
+  font-size: 8px;
+}
+
+.admin-report-revenue-cell {
+  color: #16865a;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.admin-report-order-id {
+  color: #3152d8;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.admin-analytics-entity-cell {
+  min-width: 190px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-analytics-entity-cell > div {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  color: #3152d8;
+  background: #eaf0ff;
+  display: grid;
+  place-items: center;
+}
+
+.admin-analytics-entity-cell section {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-analytics-entity-cell strong {
+  color: #27314e;
+  font-size: 10px;
+}
+
+.admin-analytics-entity-cell span {
+  color: #8992a7;
+  font-size: 8px;
+}
+
+.admin-analytics-revenue {
+  color: #16865a;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.admin-analytics-order-id {
+  color: #3152d8;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.admin-table-pagination {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 16px;
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-top: 1px solid #e7eaf1;
+}
+
+.admin-table-pagination-summary { color: #7a849a; font-size: 11px; }
+.admin-table-pagination-controls { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.admin-table-pagination-page { min-width: 88px; color: #3f4a66; text-align: center; font-size: 11px; font-weight: 700; }
+.admin-table-pagination button { min-height: 34px; padding: 7px 12px; border: 1px solid #d7ddea; border-radius: 8px; color: #3152d8; background: #fff; font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
+.admin-table-pagination button:hover:not(:disabled) { border-color: #3152d8; background: #f2f5ff; }
+.admin-table-pagination button:focus-visible { outline: 3px solid rgba(49, 82, 216, .22); outline-offset: 2px; }
+.admin-table-pagination button:disabled { color: #9aa2b3; border-color: #e5e8ef; background: #f5f6f8; cursor: not-allowed; }
+
+@media (max-width: 520px) {
+  .admin-table-pagination { align-items: flex-start; flex-direction: column; }
+  .admin-table-pagination-controls { width: 100%; justify-content: space-between; }
+  .admin-table-pagination-controls button { flex: 1 1 auto; }
+}

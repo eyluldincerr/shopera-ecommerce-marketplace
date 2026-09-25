@@ -1,0 +1,101 @@
+@Shopera_HostAddress = http://localhost:5208
+@AdminUserId = 1
+
+# After creating "Computers", replace this with the returned categoryId.
+@ParentCategoryId = 1
+
+# After creating "Laptops", replace this with the returned categoryId.
+@CategoryId = 2
+
+
+### 1. Check that the backend is running
+GET {{Shopera_HostAddress}}/api/categories
+
+
+### 2. List categories as Admin, including hierarchy and usage counts
+GET {{Shopera_HostAddress}}/api/admin/categories
+X-Admin-User-Id: {{AdminUserId}}
+
+
+### 3. Create the root category: Computers
+POST {{Shopera_HostAddress}}/api/admin/categories
+X-Admin-User-Id: {{AdminUserId}}
+Content-Type: application/json
+
+{
+  "categoryName": "Computers",
+  "description": "Computers, laptops, desktops, and related devices."
+}
+
+
+### IMPORTANT
+# Run request 3 first.
+# Copy the returned categoryId for "Computers".
+# Set @ParentCategoryId at the top to that returned ID.
+
+
+### 4. Create the child category: Laptops
+POST {{Shopera_HostAddress}}/api/admin/categories
+X-Admin-User-Id: {{AdminUserId}}
+Content-Type: application/json
+
+{
+  "categoryName": "Laptops",
+  "description": "Portable laptop and notebook computers.",
+  "parentCategoryId": {{ParentCategoryId}}
+}
+
+
+### IMPORTANT
+# Run request 4 after updating @ParentCategoryId.
+# Copy the returned categoryId for "Laptops".
+# Set @CategoryId at the top to that returned ID.
+
+
+### 5. Confirm public Seller-selectable categories
+GET {{Shopera_HostAddress}}/api/categories
+
+
+### 6. Confirm the Admin category hierarchy
+GET {{Shopera_HostAddress}}/api/admin/categories
+X-Admin-User-Id: {{AdminUserId}}
+
+
+### 7. Rename the Laptops category
+PATCH {{Shopera_HostAddress}}/api/admin/categories/{{CategoryId}}
+X-Admin-User-Id: {{AdminUserId}}
+Content-Type: application/json
+
+{
+  "categoryName": "Business Laptops",
+  "description": "Portable computers intended for professional and business use.",
+  "updateParentCategory": false
+}
+
+
+### 8. Move a category under Computers
+PATCH {{Shopera_HostAddress}}/api/admin/categories/{{CategoryId}}
+X-Admin-User-Id: {{AdminUserId}}
+Content-Type: application/json
+
+{
+  "updateParentCategory": true,
+  "parentCategoryId": {{ParentCategoryId}}
+}
+
+
+### 9. Make a category a root category
+PATCH {{Shopera_HostAddress}}/api/admin/categories/{{CategoryId}}
+X-Admin-User-Id: {{AdminUserId}}
+Content-Type: application/json
+
+{
+  "updateParentCategory": true,
+  "parentCategoryId": null
+}
+
+
+### 10. Delete a category
+# Only run this after moving its child categories and products elsewhere.
+DELETE {{Shopera_HostAddress}}/api/admin/categories/{{CategoryId}}
+X-Admin-User-Id: {{AdminUserId}}

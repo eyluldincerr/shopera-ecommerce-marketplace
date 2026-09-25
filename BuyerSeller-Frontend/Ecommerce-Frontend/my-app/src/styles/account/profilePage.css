@@ -1,0 +1,985 @@
+.profile-page {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: calc(100vh - 74px);
+  padding: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(9, 191, 208, 0.1), transparent 30%),
+    var(--color-background);
+  color: var(--color-primary);
+}
+
+.profile-layout {
+  width: min(var(--container-page), 100%);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 26px;
+}
+
+.profile-sidebar {
+  position: sticky;
+  top: 94px;
+  align-self: start;
+  min-width: 0;
+}
+
+.profile-mini-card {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: linear-gradient(135deg, #ffffff, #f5f8ff);
+  box-shadow: var(--shadow-card);
+}
+
+.profile-mini-avatar {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff7a21, #914bff, #09bfd0);
+  color: var(--color-white);
+  font-weight: 900;
+}
+
+.profile-mini-avatar {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  font-size: 18px;
+}
+
+.profile-mini-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-mini-card h3 {
+  margin: 0;
+  min-width: 0;
+  color: var(--color-primary);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.profile-mini-card p {
+  margin: 3px 0 0;
+  color: #8b91a4;
+  font-size: 11px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.profile-side-nav {
+  margin-top: 10px;
+  max-width: 100%;
+  min-width: 0;
+  padding: 6px 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.profile-side-nav a {
+  min-height: 42px;
+  min-width: 0;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  border-bottom: 1px solid #eef0f5;
+  color: #747986;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.profile-side-nav a > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-side-nav__badge {
+  min-width: 24px;
+  height: 22px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff9559, var(--color-accent));
+  color: var(--color-white);
+  font-size: 11px;
+}
+
+.profile-side-nav a:hover,
+.profile-side-nav a.active {
+  color: var(--color-purple);
+  background: #f8f6ff;
+  box-shadow: inset 4px 0 0 var(--color-purple);
+}
+
+.profile-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.profile-page-header {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+}
+
+.profile-page-header h1 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.profile-page-header p {
+  margin: 5px 0 0;
+  color: #7b8192;
+  font-size: 14px;
+}
+
+.profile-role-badge {
+  max-width: 100%;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #eef0ff;
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.profile-alert {
+  max-width: 100%;
+  margin-bottom: 16px;
+  padding: 13px 15px;
+  border-radius: var(--radius-button);
+  font-size: 13px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.profile-alert.success {
+  border: 1px solid #a7e8c3;
+  background: #effcf4;
+  color: #087537;
+}
+
+.profile-alert.error {
+  border: 1px solid #ffbec4;
+  background: #fff1f3;
+  color: #b42332;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.profile-card {
+  min-width: 0;
+  border: 1px solid #e1e4ee;
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+}
+
+.profile-main-card,
+.profile-email-card,
+.profile-security-card {
+  padding: 24px;
+}
+
+.profile-card h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.profile-card-title {
+  margin-bottom: 20px;
+}
+
+.profile-card-title p,
+.profile-card-help {
+  margin: 5px 0 0;
+  color: #7b8192;
+  font-size: 13px;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.profile-security-card .profile-form {
+  grid-template-columns: 1fr;
+}
+
+.profile-form-group {
+  min-width: 0;
+}
+
+.profile-form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.profile-form-group input {
+  width: 100%;
+  height: 44px;
+  padding: 0 13px;
+  border: 1px solid #dfe3f1;
+  border-radius: var(--radius-button);
+  outline: none;
+  background: var(--color-white);
+  color: #18203a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.profile-form-group input:focus {
+  border-color: #914bff;
+  box-shadow: 0 0 0 3px rgba(145, 75, 255, 0.12);
+}
+
+.profile-form-group input:disabled {
+  cursor: not-allowed;
+  background: #f4f5f8;
+  color: #8b91a4;
+}
+
+.profile-field-error {
+  margin: 5px 0 0;
+  color: #cc2838;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.profile-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.profile-actions button {
+  min-width: 120px;
+  max-width: 100%;
+  height: 42px;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.profile-actions button:first-child {
+  border: 1px solid #dfe3f1;
+  background: var(--color-white);
+  color: #72798b;
+}
+
+.profile-actions button:last-child {
+  border: 0;
+  background: var(--gradient-brand);
+  color: var(--color-white);
+  box-shadow: 0 12px 24px rgba(83, 84, 205, 0.22);
+}
+
+.profile-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.profile-loading-card {
+  width: min(420px, 100%);
+  margin: 80px auto;
+  padding: 30px;
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  color: var(--color-primary);
+  text-align: center;
+  font-weight: 900;
+}
+
+.profile-loading-card p {
+  margin: 0 0 16px;
+}
+
+.profile-loading-card button {
+  min-height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--gradient-brand);
+  color: var(--color-white);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.profile-page--seller {
+  min-height: 100%;
+  padding: 4px 0;
+  background: transparent;
+}
+
+/* Shared buyer-account visual system. The account scope intentionally carries
+   enough specificity to stay isolated from the global buyer presentation layer. */
+main.profile-page.profile-page:not(.profile-page--seller) {
+  --account-primary-gradient: linear-gradient(135deg, #2436c7, #6d4ee8 65%, #279fd5);
+  --account-primary-gradient-hover: linear-gradient(135deg, #1f30b6, #6044dc 64%, #218ec4);
+  --account-focus-ring: rgba(109, 78, 232, 0.28);
+  overflow-x: clip;
+  padding: clamp(20px, 2.5vw, 32px);
+  background: #f6f7fb;
+  color: #18203a;
+}
+
+main.profile-page .profile-layout {
+  width: min(1160px, 100%);
+  grid-template-columns: 236px minmax(0, 1fr);
+  gap: 24px;
+}
+
+main.profile-page .profile-sidebar {
+  top: 92px;
+}
+
+main.profile-page .profile-mini-card,
+main.profile-page .profile-side-nav {
+  border-color: #e3e6f0;
+  border-radius: 16px;
+  background: var(--color-white);
+  box-shadow: none;
+}
+
+main.profile-page .profile-mini-card {
+  padding: 14px 16px;
+}
+
+main.profile-page .profile-mini-card h3 {
+  color: #111a3a;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+main.profile-page .profile-mini-card p {
+  color: #778096;
+  font-weight: 600;
+}
+
+main.profile-page .profile-side-nav {
+  margin-top: 12px;
+  padding: 7px;
+}
+
+main.profile-page .profile-side-nav a {
+  position: relative;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  color: #5f687f;
+  font-weight: 650;
+  transition:
+    background-color 190ms ease,
+    color 190ms ease,
+    box-shadow 190ms ease;
+}
+
+main.profile-page .profile-side-nav a:hover {
+  background: #f6f4ff;
+  color: #37246f;
+  box-shadow: none;
+}
+
+main.profile-page .profile-side-nav a.active {
+  background: #f1edff;
+  color: #49258f;
+  box-shadow: inset 3px 0 0 var(--color-purple);
+}
+
+main.profile-page .profile-side-nav__badge {
+  background: #fff0e7;
+  color: #a3450b;
+}
+
+main.profile-page .profile-page-header,
+main.profile-page .addresses-header,
+main.profile-page .coupons-header,
+main.profile-page .orders-header,
+main.profile-page .wishlist-page__header {
+  margin-bottom: 20px;
+}
+
+main.profile-page .profile-page-header h1,
+main.profile-page .addresses-header h1,
+main.profile-page .coupons-header h1,
+main.profile-page .orders-header h1,
+main.profile-page .notifications-page__header h1,
+main.profile-page .wishlist-page__header h1,
+main.profile-page .account-panel h1 {
+  color: #111a3a;
+  font-size: clamp(28px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.16;
+}
+
+main.profile-page .profile-page-header p,
+main.profile-page .addresses-header p,
+main.profile-page .coupons-header p,
+main.profile-page .orders-header p,
+main.profile-page .notifications-page__header p,
+main.profile-page .wishlist-page__heading > p,
+main.profile-page .account-panel > p {
+  color: #69738a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+main.profile-page .profile-role-badge {
+  padding: 6px 11px;
+  background: #f1edff;
+  color: #5b35a8;
+  font-size: 11px;
+  font-weight: 750;
+  box-shadow: none;
+}
+
+main.profile-page .profile-grid {
+  gap: 18px;
+}
+
+main.profile-page .profile-card,
+main.profile-page .account-panel,
+main.profile-page .address-card,
+main.profile-page .address-add-card,
+main.profile-page .addresses-empty,
+main.profile-page .coupon-stats article,
+main.profile-page .coupon-card,
+main.profile-page .coupons-empty,
+main.profile-page .support-topic-card,
+main.profile-page .support-faq-panel,
+main.profile-page .support-contact-card,
+main.profile-page .support-hours-card,
+main.profile-page .support-ticket-card,
+main.profile-page .support-empty-inline,
+main.profile-page .order-row,
+main.profile-page .orders-empty,
+main.profile-page .order-detail__header,
+main.profile-page .order-timeline,
+main.profile-page .order-detail-card,
+main.profile-page .notifications-page__header,
+main.profile-page .notifications-page__filters,
+main.profile-page .notifications-page__list,
+main.profile-page .notifications-page__state,
+main.profile-page .wishlist-item,
+main.profile-page .wishlist-empty,
+main.profile-page .wishlist-state-card {
+  border-color: #e2e6f0;
+  border-radius: 16px;
+  background-color: var(--color-white);
+  box-shadow: none;
+}
+
+main.profile-page .profile-main-card,
+main.profile-page .profile-email-card,
+main.profile-page .profile-security-card {
+  padding: 26px;
+}
+
+main.profile-page .profile-card h2,
+main.profile-page .order-detail-card h2,
+main.profile-page .support-section__header h2 {
+  color: #111a3a;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+main.profile-page .profile-card-title {
+  margin-bottom: 18px;
+}
+
+main.profile-page .profile-card-title p,
+main.profile-page .profile-card-help {
+  color: #747d91;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+main.profile-page .profile-form-group label,
+main.profile-page .address-form__field span,
+main.profile-page .address-form__checkbox span,
+main.profile-page .coupon-form label span,
+main.profile-page .support-ticket-form label span {
+  color: #26304b;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+main.profile-page .profile-form-group input,
+main.profile-page .address-form__field input,
+main.profile-page .address-form__field select,
+main.profile-page .coupon-form input,
+main.profile-page .support-ticket-form input,
+main.profile-page .support-ticket-form select,
+main.profile-page .support-ticket-form textarea,
+main.profile-page .support-chat-form input {
+  border-color: #d9deea;
+  border-radius: 11px;
+  background: var(--color-white);
+  color: #202943;
+  font-weight: 600;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+main.profile-page .profile-form-group input:hover:not(:disabled),
+main.profile-page .address-form__field input:hover:not(:disabled),
+main.profile-page .address-form__field select:hover:not(:disabled),
+main.profile-page .coupon-form input:hover:not(:disabled),
+main.profile-page .support-ticket-form input:hover:not(:disabled),
+main.profile-page .support-ticket-form select:hover:not(:disabled),
+main.profile-page .support-ticket-form textarea:hover:not(:disabled),
+main.profile-page .support-chat-form input:hover:not(:disabled) {
+  border-color: #c8cede;
+}
+
+main.profile-page .profile-form-group input:focus,
+main.profile-page .address-form__field input:focus,
+main.profile-page .address-form__field select:focus,
+main.profile-page .coupon-form input:focus,
+main.profile-page .support-ticket-form input:focus,
+main.profile-page .support-ticket-form select:focus,
+main.profile-page .support-ticket-form textarea:focus,
+main.profile-page .support-chat-form input:focus {
+  border-color: #7651d4;
+  box-shadow: 0 0 0 3px rgba(145, 75, 255, 0.11);
+  outline: none;
+}
+
+main.profile-page .profile-form-group input:disabled,
+main.profile-page .profile-form-group input[readonly] {
+  border-color: #e1e4ec;
+  background: #f3f5f8;
+  color: #667085;
+  opacity: 1;
+}
+
+main.profile-page .profile-actions button,
+main.profile-page .profile-loading-card button,
+main.profile-page .addresses-primary-button,
+main.profile-page .addresses-empty button,
+main.profile-page .address-card__actions button,
+main.profile-page .address-form__actions button,
+main.profile-page .coupons-primary-button,
+main.profile-page .coupons-empty button,
+main.profile-page .coupon-card__actions button,
+main.profile-page .coupon-form__actions button,
+main.profile-page .support-search button,
+main.profile-page .support-section__header button,
+main.profile-page .support-contact-card button,
+main.profile-page .support-form-actions button,
+main.profile-page .support-chat-form button,
+main.profile-page .orders-primary-link,
+main.profile-page .orders-empty a,
+main.profile-page .order-row__actions button,
+main.profile-page .order-detail-actions a,
+main.profile-page .order-detail-actions button,
+main.profile-page .notifications-page__header button,
+main.profile-page .notifications-page__state button,
+main.profile-page .notifications-page__pagination button,
+main.profile-page .wishlist-page__clear-button,
+main.profile-page .wishlist-item__remove,
+main.profile-page .wishlist-item__cart,
+main.profile-page .wishlist-empty__shop-button {
+  border-radius: 11px;
+  box-shadow: none;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+main.profile-page .profile-actions button:last-child,
+main.profile-page .profile-loading-card button,
+main.profile-page .addresses-primary-button,
+main.profile-page .addresses-empty button,
+main.profile-page .address-form__actions button:last-child,
+main.profile-page .coupons-primary-button,
+main.profile-page .coupons-empty button,
+main.profile-page .coupon-form__actions button:last-child,
+main.profile-page .support-search button,
+main.profile-page .support-section__header button,
+main.profile-page .support-contact-card button,
+main.profile-page .support-form-actions button:last-child,
+main.profile-page .support-chat-form button,
+main.profile-page .orders-primary-link,
+main.profile-page .orders-empty a,
+main.profile-page .order-detail-actions a,
+main.profile-page .order-detail-actions button:not(.order-detail-actions__cancel):not(.order-detail-actions__archive),
+main.profile-page .notifications-page__header button,
+main.profile-page .notifications-page__state button,
+main.profile-page .notifications-page__pagination button,
+main.profile-page .wishlist-item__cart,
+main.profile-page .wishlist-empty__shop-button {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: var(--account-primary-gradient);
+  color: var(--color-white);
+  box-shadow: none;
+}
+
+main.profile-page .profile-actions button:last-child:hover:not(:disabled),
+main.profile-page .profile-loading-card button:hover:not(:disabled),
+main.profile-page .addresses-primary-button:hover:not(:disabled),
+main.profile-page .addresses-empty button:hover:not(:disabled),
+main.profile-page .address-form__actions button:last-child:hover:not(:disabled),
+main.profile-page .coupons-primary-button:hover:not(:disabled),
+main.profile-page .coupons-empty button:hover:not(:disabled),
+main.profile-page .coupon-form__actions button:last-child:hover:not(:disabled),
+main.profile-page .support-search button:hover:not(:disabled),
+main.profile-page .support-section__header button:hover:not(:disabled),
+main.profile-page .support-contact-card button:hover:not(:disabled),
+main.profile-page .support-form-actions button:last-child:hover:not(:disabled),
+main.profile-page .support-chat-form button:hover:not(:disabled),
+main.profile-page .orders-primary-link:hover,
+main.profile-page .orders-empty a:hover,
+main.profile-page .order-detail-actions a:hover,
+main.profile-page .order-detail-actions button:not(.order-detail-actions__cancel):not(.order-detail-actions__archive):hover:not(:disabled),
+main.profile-page .notifications-page__header button:hover:not(:disabled),
+main.profile-page .notifications-page__state button:hover:not(:disabled),
+main.profile-page .notifications-page__pagination button:hover:not(:disabled),
+main.profile-page .wishlist-item__cart:hover,
+main.profile-page .wishlist-empty__shop-button:hover {
+  transform: translateY(-1px);
+  background: var(--account-primary-gradient-hover);
+  box-shadow: 0 7px 16px rgba(24, 35, 110, 0.15);
+}
+
+main.profile-page :is(
+  .profile-actions button:last-child,
+  .profile-loading-card button,
+  .addresses-primary-button,
+  .addresses-empty button,
+  .address-form__actions button:last-child,
+  .coupons-primary-button,
+  .coupons-empty button,
+  .coupon-form__actions button:last-child,
+  .support-search button,
+  .support-section__header button,
+  .support-contact-card button,
+  .support-form-actions button:last-child,
+  .support-chat-form button,
+  .orders-primary-link,
+  .orders-empty a,
+  .order-detail-actions a,
+  .order-detail-actions button:not(.order-detail-actions__cancel):not(.order-detail-actions__archive),
+  .notifications-page__header button,
+  .notifications-page__state button,
+  .notifications-page__pagination button,
+  .wishlist-item__cart,
+  .wishlist-empty__shop-button
+):active:not(:disabled) {
+  transform: translateY(0);
+  background: var(--account-primary-gradient-hover);
+  box-shadow: 0 3px 8px rgba(24, 35, 110, 0.12);
+}
+
+main.profile-page .profile-actions button:first-child,
+main.profile-page .address-card__actions button,
+main.profile-page .address-form__actions button:first-child,
+main.profile-page .coupon-card__actions button,
+main.profile-page .coupon-form__actions button:first-child,
+main.profile-page .support-form-actions button:first-child,
+main.profile-page .order-row__actions button,
+main.profile-page .order-detail-actions__archive,
+main.profile-page .wishlist-page__clear-button {
+  border: 1px solid #d9deea;
+  background: var(--color-white);
+  color: #465169;
+}
+
+main.profile-page .profile-actions button:first-child:hover:not(:disabled),
+main.profile-page .address-card__actions button:hover:not(:disabled),
+main.profile-page .address-form__actions button:first-child:hover:not(:disabled),
+main.profile-page .coupon-card__actions button:hover:not(:disabled),
+main.profile-page .coupon-form__actions button:first-child:hover:not(:disabled),
+main.profile-page .support-form-actions button:first-child:hover:not(:disabled),
+main.profile-page .order-row__actions button:hover:not(:disabled),
+main.profile-page .order-detail-actions__archive:hover:not(:disabled),
+main.profile-page .wishlist-page__clear-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: #bfb2e7;
+  background: #f7f5ff;
+  color: #49258f;
+  box-shadow: none;
+}
+
+main.profile-page .coupon-card__checkout-button {
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  background: var(--account-primary-gradient);
+  color: var(--color-white) !important;
+  box-shadow: none;
+}
+
+main.profile-page .coupon-card__checkout-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: var(--account-primary-gradient-hover);
+  box-shadow: 0 7px 16px rgba(24, 35, 110, 0.15);
+}
+
+main.profile-page .coupon-card__checkout-button:active:not(:disabled) {
+  transform: translateY(0);
+  background: var(--account-primary-gradient-hover);
+  box-shadow: 0 3px 8px rgba(24, 35, 110, 0.12);
+}
+
+main.profile-page .address-card__actions .address-card__delete-button,
+main.profile-page .coupon-card__remove-button,
+main.profile-page .order-row__actions .order-row__cancel,
+main.profile-page .order-detail-actions__cancel,
+main.profile-page .wishlist-item__remove {
+  border-color: #f2c7cd;
+  background: var(--color-white);
+  color: #bd3348;
+}
+
+main.profile-page .address-card__actions .address-card__delete-button:hover:not(:disabled),
+main.profile-page .coupon-card__remove-button:hover:not(:disabled),
+main.profile-page .order-row__actions .order-row__cancel:hover:not(:disabled),
+main.profile-page .order-detail-actions__cancel:hover:not(:disabled),
+main.profile-page .wishlist-item__remove:hover:not(:disabled) {
+  border-color: #e8aeb7;
+  background: #fff4f5;
+  color: #a92338;
+}
+
+main.profile-page .address-add-card span {
+  background: var(--account-primary-gradient);
+}
+
+main.profile-page .address-add-card:hover span {
+  background: var(--account-primary-gradient-hover);
+}
+
+main.profile-page :is(
+  .profile-actions button,
+  .profile-loading-card button,
+  .addresses-primary-button,
+  .addresses-empty button,
+  .address-card__actions button,
+  .address-form__actions button,
+  .coupons-primary-button,
+  .coupons-empty button,
+  .coupon-card__actions button,
+  .coupon-form__actions button,
+  .support-search button,
+  .support-section__header button,
+  .support-contact-card button,
+  .support-form-actions button,
+  .support-chat-form button,
+  .order-row__actions button,
+  .order-detail-actions button,
+  .notifications-page__header button,
+  .notifications-page__state button,
+  .notifications-page__pagination button,
+  .wishlist-page__clear-button,
+  .wishlist-item__remove,
+  .wishlist-item__cart,
+  .address-add-card
+):disabled {
+  border-color: #dfe3eb;
+  background: #f1f3f7;
+  color: #7b8497;
+  cursor: not-allowed;
+  filter: none;
+  opacity: 1;
+  box-shadow: none;
+  transform: none;
+}
+
+main.profile-page.profile-page :where(button, a, input, select, textarea):focus-visible {
+  outline: 3px solid var(--account-focus-ring);
+  outline-offset: 2px;
+}
+
+@media (max-width: 980px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+    position: static;
+  }
+
+  .profile-side-nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    max-width: 100%;
+    min-width: 0;
+    padding: 8px;
+    scrollbar-color: rgba(145, 75, 255, 0.32) transparent;
+    scrollbar-width: thin;
+    touch-action: pan-x pan-y;
+  }
+
+  .profile-side-nav::-webkit-scrollbar {
+    display: block;
+    height: 6px;
+  }
+
+  .profile-side-nav::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .profile-side-nav::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(145, 75, 255, 0.28);
+  }
+
+  .profile-side-nav a {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    min-height: 38px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: 0 14px;
+    white-space: nowrap;
+  }
+
+  main.profile-page .profile-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  main.profile-page .profile-side-nav a,
+  main.profile-page .profile-side-nav a.active {
+    border: 1px solid #e0e3ee;
+    box-shadow: none;
+  }
+
+  main.profile-page .profile-side-nav a.active {
+    border-color: #cfc2f2;
+  }
+
+  .profile-side-nav a:hover,
+  .profile-side-nav a.active {
+    box-shadow: none;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-main-card,
+  .profile-email-card,
+  .profile-security-card {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .profile-page {
+    padding: 16px 12px;
+  }
+
+  .profile-layout {
+    gap: 18px;
+  }
+
+  .profile-mini-card {
+    align-items: flex-start;
+  }
+
+  .profile-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profile-page-header h1 {
+    font-size: 24px;
+  }
+
+  .profile-form {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-actions {
+    flex-direction: column-reverse;
+  }
+
+  .profile-actions button {
+    width: 100%;
+  }
+
+  main.profile-page.profile-page:not(.profile-page--seller) {
+    padding: 16px 12px 22px;
+  }
+
+  main.profile-page .profile-main-card,
+  main.profile-page .profile-email-card,
+  main.profile-page .profile-security-card {
+    padding: 18px;
+  }
+
+  main.profile-page .profile-page-header h1,
+  main.profile-page .addresses-header h1,
+  main.profile-page .coupons-header h1,
+  main.profile-page .orders-header h1,
+  main.profile-page .notifications-page__header h1,
+  main.profile-page .wishlist-page__header h1,
+  main.profile-page .account-panel h1 {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main.profile-page.profile-page *,
+  main.profile-page.profile-page *::before,
+  main.profile-page.profile-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

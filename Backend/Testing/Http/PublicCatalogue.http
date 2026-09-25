@@ -1,0 +1,38 @@
+@Shopera_HostAddress = http://localhost:5208
+@ProductId = 1
+@StoreId = 1
+@StoreSlug = cyprus-tech
+@CategoryId = 1
+
+### Paged public catalogue (pageSize is capped at 100)
+GET {{Shopera_HostAddress}}/api/products?page=1&pageSize=50&sort=newest
+
+### Search/filter/sort without loading all 1,000 products
+GET {{Shopera_HostAddress}}/api/products?search=laptop&categoryId={{CategoryId}}&brand=Shopera&condition=NEW&minimumPrice=100&maximumPrice=2000&inStockOnly=true&sort=price_asc&page=1&pageSize=50
+
+### Complete buyer-safe detail
+# Response includes PRODUCT, PRODUCT_INFO, PRODUCT_IMAGE, buyer-safe
+# PRODUCT_VARIANT fields, CATEGORY, STORE, and review summary.
+# It must never include CostPrice or RowVersion.
+GET {{Shopera_HostAddress}}/api/products/{{ProductId}}
+
+### Related products from the same category, excluding the current product
+GET {{Shopera_HostAddress}}/api/products/{{ProductId}}/related?page=1&pageSize=4
+
+### Dynamic brand list from visible products (not a hardcoded frontend seed)
+GET {{Shopera_HostAddress}}/api/products/brands?limit=20
+
+### Public category hierarchy and visible product counts
+GET {{Shopera_HostAddress}}/api/categories
+
+### Paged approved/active stores
+GET {{Shopera_HostAddress}}/api/stores?page=1&pageSize=20&search=
+
+### Store detail by numeric ID
+GET {{Shopera_HostAddress}}/api/stores/{{StoreId}}
+
+### Store detail by slug
+GET {{Shopera_HostAddress}}/api/stores/by-slug/{{StoreSlug}}
+
+### Paged products from one store
+GET {{Shopera_HostAddress}}/api/stores/{{StoreId}}/products?page=1&pageSize=50&sort=rating_desc

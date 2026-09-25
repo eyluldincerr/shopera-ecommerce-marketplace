@@ -1,0 +1,44 @@
+@Shopera_HostAddress = http://localhost:5208
+@AdminUserId = 1
+@StoreId = 1
+@RecipientUserId = 2
+
+### List pending seller stores
+GET {{Shopera_HostAddress}}/api/admin/stores?approvalStatus=PENDING&page=1&pageSize=20
+X-Admin-User-Id: {{AdminUserId}}
+
+### Search dynamic notification recipients
+GET {{Shopera_HostAddress}}/api/admin/notification-recipients?search=&role=SELLER&page=1&pageSize=20
+X-Admin-User-Id: {{AdminUserId}}
+
+### Approve a pending store
+PATCH {{Shopera_HostAddress}}/api/admin/stores/{{StoreId}}/approve
+X-Admin-User-Id: {{AdminUserId}}
+Content-Type: application/json
+
+{
+  "decisionNote": "Store details verified."
+}
+
+### Reject a different pending store
+PATCH {{Shopera_HostAddress}}/api/admin/stores/{{StoreId}}/reject
+X-Admin-User-Id: {{AdminUserId}}
+Content-Type: application/json
+
+{
+  "decisionNote": "Please provide valid store information."
+}
+
+### Send a dynamic notification to one user
+POST {{Shopera_HostAddress}}/api/admin/notifications
+X-Admin-User-Id: {{AdminUserId}}
+Content-Type: application/json
+
+{
+  "recipientUserId": {{RecipientUserId}},
+  "title": "Account update",
+  "message": "Your Shopera account information was reviewed."
+}
+
+### Read the recipient's saved notifications
+GET {{Shopera_HostAddress}}/api/notifications/user/{{RecipientUserId}}

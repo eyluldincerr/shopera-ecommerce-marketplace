@@ -1,0 +1,53 @@
+@Shopera_HostAddress = http://localhost:5208
+# Use an ACTIVE Buyer whose DELIVERED order contains ProductId.
+@BuyerUserId = 2
+# Use an ACTIVE Buyer with no DELIVERED order containing ProductId.
+@IneligibleBuyerUserId = 3
+@ProductId = 1
+
+### Public product reviews
+GET {{Shopera_HostAddress}}/api/products/{{ProductId}}/reviews?page=1&pageSize=20
+
+### Create my review
+POST {{Shopera_HostAddress}}/api/products/{{ProductId}}/reviews
+X-Buyer-User-Id: {{BuyerUserId}}
+Content-Type: application/json
+
+{
+  "rating": 5,
+  "comment": "The product matched the description."
+}
+
+### Review before receipt: expect 403 REVIEW_DELIVERED_ORDER_REQUIRED
+POST {{Shopera_HostAddress}}/api/products/{{ProductId}}/reviews
+X-Buyer-User-Id: {{IneligibleBuyerUserId}}
+Content-Type: application/json
+
+{
+  "rating": 5,
+  "comment": "This must be rejected until delivery."
+}
+
+### Duplicate review: expect 409 after the first request
+POST {{Shopera_HostAddress}}/api/products/{{ProductId}}/reviews
+X-Buyer-User-Id: {{BuyerUserId}}
+Content-Type: application/json
+
+{
+  "rating": 4,
+  "comment": "A second review must be rejected."
+}
+
+### Update my review
+PATCH {{Shopera_HostAddress}}/api/products/{{ProductId}}/reviews/mine
+X-Buyer-User-Id: {{BuyerUserId}}
+Content-Type: application/json
+
+{
+  "rating": 4,
+  "comment": "Updated after more use."
+}
+
+### Delete my review
+DELETE {{Shopera_HostAddress}}/api/products/{{ProductId}}/reviews/mine
+X-Buyer-User-Id: {{BuyerUserId}}

@@ -1,0 +1,46 @@
+@Shopera_HostAddress = http://localhost:5208
+@BuyerUserId = 2
+@AddressId = 1
+
+### List my buyer addresses
+GET {{Shopera_HostAddress}}/api/buyer/addresses
+X-Buyer-User-Id: {{BuyerUserId}}
+
+### Create an address
+POST {{Shopera_HostAddress}}/api/buyer/addresses
+X-Buyer-User-Id: {{BuyerUserId}}
+Content-Type: application/json
+
+{
+  "addressLabel": "Home",
+  "streetAddress": "15 Example Street",
+  "city": "Nicosia",
+  "stateProvince": "Nicosia",
+  "postalCode": "1010",
+  "country": "Cyprus",
+  "isDefaultShipping": true,
+  "isDefaultBilling": true
+}
+
+### Read one owned address
+GET {{Shopera_HostAddress}}/api/buyer/addresses/{{AddressId}}
+X-Buyer-User-Id: {{BuyerUserId}}
+
+### Update one owned address
+PATCH {{Shopera_HostAddress}}/api/buyer/addresses/{{AddressId}}
+X-Buyer-User-Id: {{BuyerUserId}}
+Content-Type: application/json
+
+{
+  "addressLabel": "Main home",
+  "postalCode": "1011",
+  "isDefaultShipping": true
+}
+
+### Delete one owned address
+DELETE {{Shopera_HostAddress}}/api/buyer/addresses/{{AddressId}}
+X-Buyer-User-Id: {{BuyerUserId}}
+
+### Ownership failure: use another active buyer ID
+GET {{Shopera_HostAddress}}/api/buyer/addresses/{{AddressId}}
+X-Buyer-User-Id: 999

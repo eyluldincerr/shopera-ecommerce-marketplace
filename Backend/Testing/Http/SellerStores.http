@@ -1,0 +1,65 @@
+@Shopera_HostAddress = http://localhost:5208
+@SellerUserId = 3
+
+### Read my store
+GET {{Shopera_HostAddress}}/api/seller/store
+X-Seller-User-Id: {{SellerUserId}}
+
+### Submit my first store
+POST {{Shopera_HostAddress}}/api/seller/store
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "storeName": "Cyprus Tech",
+  "storeSlug": "cyprus-tech",
+  "storeDescription": "Technology products and accessories.",
+  "supportEmail": "support@cyprustech.test",
+  "supportPhone": "+35700000000",
+  "returnPolicy": "Returns accepted according to the listed policy.",
+  "supportPolicy": "Contact support by email."
+}
+
+### Update allowed profile fields
+PATCH {{Shopera_HostAddress}}/api/seller/store
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "storeDescription": "Updated store description.",
+  "supportEmail": "help@cyprustech.test"
+}
+
+### Resubmit after an Admin has rejected the store
+POST {{Shopera_HostAddress}}/api/seller/store/resubmit
+X-Seller-User-Id: {{SellerUserId}}
+
+### Hide an approved store and all its public products
+PATCH {{Shopera_HostAddress}}/api/seller/store/status
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "storeStatus": "INACTIVE"
+}
+
+### Reactivate an approved store
+PATCH {{Shopera_HostAddress}}/api/seller/store/status
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "storeStatus": "ACTIVE"
+}
+
+# CLOSED is intentionally irreversible for a Seller. Use only when testing
+# permanent closure.
+
+### Second-store conflict: expect 409 after creation
+POST {{Shopera_HostAddress}}/api/seller/store
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "storeName": "This second store must fail"
+}

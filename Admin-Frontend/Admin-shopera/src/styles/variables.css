@@ -1,0 +1,26 @@
+/* src/styles/variables.css */
+
+:root {
+  --color-primary: #090f8f;
+  --color-primary-light: #3346d3;
+  --color-accent: #ff7a35;
+  --color-cyan: #20c5d8;
+  --color-background: #f4f5fb;
+  --color-white: #ffffff;
+  --color-border: #dfe3f4;
+  --color-muted: #667085;
+  --color-soft: #eef1ff;
+  --color-ink: #111827;
+  --color-focus: #ffb020;
+
+  --shadow-card: 0 8px 24px rgba(9, 15, 143, 0.08);
+  --shadow-card-hover: 0 18px 42px rgba(9, 15, 143, 0.14);
+  --shadow-soft: 0 10px 30px rgba(16, 24, 40, 0.08);
+  --transition-fast: 160ms ease;
+  --transition-base: 240ms ease;
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+}

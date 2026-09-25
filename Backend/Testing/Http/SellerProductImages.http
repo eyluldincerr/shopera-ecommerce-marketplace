@@ -1,0 +1,173 @@
+@Shopera_HostAddress = http://localhost:5208
+@SellerUserId = 3
+@ProductId = 1
+@ImageId = 1
+
+### Create a test JPEG image upload (multipart/form-data)
+### Note: This example uses a placeholder. In real testing, use a valid JPEG file
+POST {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="File"; filename="test-image.jpg"
+Content-Type: image/jpeg
+
+<file:../TestAssets/sample-image.jpg>
+------WebKitFormBoundary
+Content-Disposition: form-data; name="AltText"
+
+Front view of product
+------WebKitFormBoundary
+Content-Disposition: form-data; name="DisplayOrder"
+
+1
+------WebKitFormBoundary
+Content-Disposition: form-data; name="IsPrimary"
+
+true
+------WebKitFormBoundary--
+
+### Upload a PNG image
+POST {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="File"; filename="test-image.png"
+Content-Type: image/png
+
+<file:../TestAssets/sample-image.png>
+------WebKitFormBoundary
+Content-Disposition: form-data; name="AltText"
+
+Side view of product
+------WebKitFormBoundary
+Content-Disposition: form-data; name="DisplayOrder"
+
+2
+------WebKitFormBoundary
+Content-Disposition: form-data; name="IsPrimary"
+
+false
+------WebKitFormBoundary--
+
+### Update image metadata (alt text and display order)
+PATCH {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images/{{ImageId}}
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="AltText"
+
+Updated: Back view of product
+------WebKitFormBoundary
+Content-Disposition: form-data; name="DisplayOrder"
+
+3
+------WebKitFormBoundary--
+
+### Replace an image with new file while updating metadata
+PATCH {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images/{{ImageId}}
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="File"; filename="new-image.jpg"
+Content-Type: image/jpeg
+
+<file:../TestAssets/replacement-image.jpg>
+------WebKitFormBoundary
+Content-Disposition: form-data; name="AltText"
+
+Replacement front view
+------WebKitFormBoundary
+Content-Disposition: form-data; name="IsPrimary"
+
+true
+------WebKitFormBoundary--
+
+### Make an image primary (promote it)
+PATCH {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images/{{ImageId}}
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="IsPrimary"
+
+true
+------WebKitFormBoundary--
+
+### Seller preview of Draft product image
+GET {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images/{{ImageId}}/content
+X-Seller-User-Id: {{SellerUserId}}
+
+### Public image content endpoint (for public/active products only)
+GET {{Shopera_HostAddress}}/api/product-images/{{ImageId}}/content
+
+### Delete an image
+DELETE {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images/{{ImageId}}
+X-Seller-User-Id: {{SellerUserId}}
+
+### Attempt to upload without a file (should fail)
+POST {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="AltText"
+
+This should fail - no file
+------WebKitFormBoundary
+Content-Disposition: form-data; name="DisplayOrder"
+
+1
+------WebKitFormBoundary--
+
+### Attempt to upload invalid format (should fail - not an image)
+POST {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="File"; filename="document.pdf"
+Content-Type: application/pdf
+
+%PDF-1.4 fake PDF content
+------WebKitFormBoundary
+Content-Disposition: form-data; name="DisplayOrder"
+
+1
+------WebKitFormBoundary--
+
+### Attempt to upload image for someone else's product (should fail - unauthorized)
+POST {{Shopera_HostAddress}}/api/seller/products/999/images
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="File"; filename="hacked.jpg"
+Content-Type: image/jpeg
+
+<file:../TestAssets/sample-image.jpg>
+------WebKitFormBoundary
+Content-Disposition: form-data; name="DisplayOrder"
+
+1
+------WebKitFormBoundary--
+
+### Attempt to create duplicate DisplayOrder (should fail with conflict error)
+POST {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="File"; filename="duplicate-order.jpg"
+Content-Type: image/jpeg
+
+<file:../TestAssets/sample-image.jpg>
+------WebKitFormBoundary
+Content-Disposition: form-data; name="DisplayOrder"
+
+1
+------WebKitFormBoundary--

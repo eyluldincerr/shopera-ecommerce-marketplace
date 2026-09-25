@@ -1,0 +1,38 @@
+/* src/styles/variables.css */
+:root {
+  --color-primary: #020b91;
+  --color-primary-dark: #06118f;
+  --color-primary-light: #3346d3;
+  --color-purple: #914bff;
+  --color-accent: #ff7a21;
+  --color-orange: #ff7a21;
+  --color-cyan: #09bfd0;
+  --color-background: #f5f6fb;
+  --color-white: #ffffff;
+  --color-border: #dfe3f1;
+  --color-muted: #6d7285;
+  --color-soft: #eef1ff;
+  --color-ink: #111827;
+  --color-focus: #ffb020;
+
+  --font-family-body: Inter, "Segoe UI Variable Text", "Segoe UI", Arial, sans-serif;
+  --font-family-display: "Segoe UI Variable Display", Inter, "Segoe UI", Arial, sans-serif;
+
+  --gradient-brand: linear-gradient(135deg, #ff7a21 0%, #914bff 52%, #09bfd0 100%);
+  --gradient-primary: linear-gradient(135deg, #020b91 0%, #914bff 100%);
+  --shadow-card: 0 16px 38px rgba(15, 23, 42, 0.08);
+  --shadow-card-hover: 0 22px 52px rgba(15, 23, 42, 0.13);
+  --shadow-soft: 0 10px 30px rgba(16, 24, 40, 0.08);
+  --transition-fast: 160ms ease;
+  --transition-base: 0.2s ease;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-card: 18px;
+  --radius-xl: 20px;
+  --radius-button: 12px;
+  --radius-pill: 999px;
+  --container-wide: 1240px;
+  --container-page: 1180px;
+}

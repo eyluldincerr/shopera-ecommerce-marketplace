@@ -1,0 +1,136 @@
+/* src/styles/product/infiniteProductGrid.css */
+
+.infinite-product-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.infinite-product-grid__skeleton {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.infinite-product-grid__skeleton span {
+  min-height: 320px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: linear-gradient(90deg, #eef1fb 25%, #f8f9fe 37%, #eef1fb 63%);
+  background-size: 400% 100%;
+  box-shadow: var(--shadow-card);
+  animation: collectionSkeleton 1.2s ease-in-out infinite;
+}
+
+.infinite-product-grid__end,
+.infinite-product-grid__state {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  color: var(--color-muted);
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.infinite-product-grid__state {
+  width: 100%;
+  max-width: 100%;
+  min-height: 240px;
+  align-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+  padding: 30px;
+}
+
+.infinite-product-grid__state h2 {
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.infinite-product-grid__state p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.infinite-product-grid__state button {
+  min-height: 40px;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--gradient-brand);
+  color: var(--color-white);
+  cursor: pointer;
+  padding: 0 16px;
+  font-weight: 900;
+}
+
+.infinite-product-grid__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.infinite-product-grid__load-more {
+  min-height: 44px;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--gradient-brand);
+  color: var(--color-white);
+  cursor: pointer;
+  padding: 0 20px;
+  font-weight: 900;
+}
+
+.infinite-product-grid__load-more:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+@media (max-width: 1024px) {
+  .infinite-product-grid__skeleton {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .infinite-product-grid__skeleton {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 360px) {
+  .infinite-product-grid__skeleton {
+    grid-template-columns: 1fr;
+  }
+}
+
+.infinite-product-grid__sentinel {
+  min-height: 72px;
+  display: grid;
+  place-items: center;
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.infinite-product-grid__sentinel:not(:empty)::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+  border: 3px solid rgba(9, 15, 143, 0.16);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  animation: infiniteGridSpin 800ms linear infinite;
+}
+
+@keyframes infiniteGridSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}

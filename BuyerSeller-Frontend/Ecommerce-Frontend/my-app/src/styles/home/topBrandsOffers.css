@@ -1,0 +1,476 @@
+/* src/styles/home/topBrandsOffers.css */
+
+.top-brands-offers {
+  padding: 18px 0 22px;
+  animation: sectionFadeIn 420ms ease 120ms both;
+}
+
+.top-brands-offers__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.top-brands-offers__header h2 {
+  margin: 0;
+  color: #11173d;
+  font-family: var(--font-family-display);
+  font-size: clamp(24px, 2vw, 28px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.top-brands-offers__view-all {
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color var(--transition-base), transform var(--transition-base);
+}
+
+.top-brands-offers__view-all:hover {
+  color: #ef3f9d;
+  transform: translateX(2px);
+}
+
+.top-brands-offers__brands {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.top-brands-offers__brand {
+  min-height: 64px;
+  padding: 9px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(118, 87, 245, 0.16);
+  border-radius: 14px;
+  background-color: #f7f6ff;
+  color: #050505;
+  box-shadow:
+    0 2px 5px rgba(18, 24, 70, 0.035),
+    0 7px 16px rgba(18, 24, 70, 0.04);
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.top-brands-offers__brand:hover {
+  border-color: rgba(118, 87, 245, 0.28);
+  box-shadow:
+    0 3px 8px rgba(18, 24, 70, 0.04),
+    0 9px 18px rgba(18, 24, 70, 0.055);
+  transform: translateY(-2px);
+}
+
+.top-brands-offers__brand:focus-visible {
+  outline: 2px solid rgba(118, 87, 245, 0.4);
+  outline-offset: 3px;
+}
+
+.top-brands-offers__wordmark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1.6px;
+}
+
+.top-brands-offers__apple {
+  width: 24px;
+  height: 27px;
+  position: relative;
+  border-radius: 48% 48% 44% 44%;
+  background-color: #050505;
+}
+
+.top-brands-offers__apple::before {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #f7f6ff;
+}
+
+.top-brands-offers__apple::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: -9px;
+  width: 11px;
+  height: 8px;
+  border-radius: 11px 0;
+  background-color: #050505;
+  transform: rotate(-35deg);
+}
+
+.top-brands-offers__nike {
+  width: 54px;
+  height: 21px;
+  position: relative;
+  overflow: hidden;
+}
+
+.top-brands-offers__nike::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  bottom: 1px;
+  width: 56px;
+  height: 17px;
+  border-radius: 0 0 58px 8px;
+  background-color: #050505;
+  transform: skewX(-28deg) rotate(-13deg);
+}
+
+.top-brands-offers__nike::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 9px;
+  width: 31px;
+  height: 13px;
+  border-radius: 0 0 30px 8px;
+  background-color: #f7f6ff;
+  transform: rotate(-14deg);
+}
+
+.top-brands-offers__adidas {
+  width: 44px;
+  height: 35px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.top-brands-offers__adidas span {
+  display: block;
+  width: 9px;
+  background-color: #050505;
+  transform: skewX(33deg);
+}
+
+.top-brands-offers__adidas span:nth-child(1) {
+  height: 17px;
+}
+
+.top-brands-offers__adidas span:nth-child(2) {
+  height: 26px;
+}
+
+.top-brands-offers__adidas span:nth-child(3) {
+  height: 35px;
+}
+
+.top-brands-offers__huawei {
+  width: 36px;
+  height: 31px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 2px;
+}
+
+.top-brands-offers__huawei span {
+  display: block;
+  width: 6px;
+  height: 24px;
+  border-radius: 14px 14px 2px 2px;
+  background-color: #050505;
+  transform-origin: bottom center;
+}
+
+.top-brands-offers__huawei span:nth-child(1) {
+  transform: rotate(-45deg);
+}
+
+.top-brands-offers__huawei span:nth-child(2) {
+  transform: rotate(-22deg);
+}
+
+.top-brands-offers__huawei span:nth-child(4) {
+  transform: rotate(22deg);
+}
+
+.top-brands-offers__huawei span:nth-child(5) {
+  transform: rotate(45deg);
+}
+
+.top-brands-offers__offers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.top-brands-offers__offer {
+  --offer-accent: #ee2f78;
+  --offer-accent-rgb: 238, 47, 120;
+  min-height: 132px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid rgba(30, 42, 94, 0.08);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 92% 12%, rgba(var(--offer-accent-rgb), 0.12), transparent 30%),
+    linear-gradient(145deg, #ffffff 0%, rgba(var(--offer-accent-rgb), 0.035) 100%);
+  color: #11173d;
+  box-shadow: 0 14px 34px rgba(17, 23, 61, 0.07);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.top-brands-offers__offer:nth-child(2) {
+  --offer-accent: #6d4df5;
+  --offer-accent-rgb: 109, 77, 245;
+}
+
+.top-brands-offers__offer:nth-child(3) {
+  --offer-accent: #0b9aa8;
+  --offer-accent-rgb: 11, 154, 168;
+}
+
+.top-brands-offers__offer::after {
+  content: "";
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  right: -18px;
+  top: -18px;
+  opacity: 0.24;
+  background-image: radial-gradient(circle, rgba(var(--offer-accent-rgb), 0.75) 1.2px, transparent 1.3px);
+  background-size: 9px 9px;
+  pointer-events: none;
+}
+
+.top-brands-offers__offer:hover {
+  border-color: rgba(var(--offer-accent-rgb), 0.24);
+  box-shadow: 0 20px 42px rgba(17, 23, 61, 0.11);
+  transform: translateY(-4px);
+}
+
+.top-brands-offers__offer:focus-visible {
+  outline: 3px solid rgba(var(--offer-accent-rgb), 0.2);
+  outline-offset: 3px;
+}
+
+.top-brands-offers__offer-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid rgba(var(--offer-accent-rgb), 0.12);
+  border-radius: 20px;
+  background: rgba(var(--offer-accent-rgb), 0.09);
+  color: var(--offer-accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 1;
+  transition: transform 220ms ease, background-color 220ms ease;
+}
+
+.top-brands-offers__offer-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.top-brands-offers__offer:hover .top-brands-offers__offer-icon {
+  background: rgba(var(--offer-accent-rgb), 0.13);
+  transform: translateY(-2px) rotate(-2deg);
+}
+
+.top-brands-offers__offer-copy {
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.top-brands-offers__offer strong,
+.top-brands-offers__offer small {
+  display: block;
+}
+
+.top-brands-offers__offer strong {
+  color: #11173d;
+  font-family: var(--font-family-display, inherit);
+  font-size: 18px;
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.top-brands-offers__offer small {
+  max-width: 220px;
+  margin-top: 7px;
+  color: #61697c;
+  font-size: 12.5px;
+  font-weight: 550;
+  line-height: 1.55;
+}
+
+.top-brands-offers__offer-arrow {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(var(--offer-accent-rgb), 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--offer-accent);
+  position: relative;
+  z-index: 1;
+  transition: transform 220ms ease, background-color 220ms ease;
+}
+
+.top-brands-offers__offer-arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.top-brands-offers__offer:hover .top-brands-offers__offer-arrow {
+  background: #fff;
+  transform: translateX(3px);
+}
+
+@media (max-width: 900px) {
+  .top-brands-offers__offers {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .top-brands-offers__offer {
+    min-height: 112px;
+    padding: 18px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .top-brands-offers__offer {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 14px;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .top-brands-offers__offer-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 17px;
+  }
+
+  .top-brands-offers__offer-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .top-brands-offers__offer-arrow {
+    display: none;
+  }
+
+  .top-brands-offers__offer strong {
+    font-size: 16px;
+  }
+}
+
+.top-brands-offers__brand small {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #61697c;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Scrollable brand rail with edge navigation */
+.top-brands-offers__brand-carousel {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.top-brands-offers__brands {
+  grid-template-columns: none;
+  grid-auto-flow: column;
+  grid-auto-columns: 152px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  margin-bottom: 0;
+  padding: 3px 2px 9px;
+  justify-content: start;
+}
+
+
+.top-brands-offers__brands::-webkit-scrollbar {
+  display: none;
+}
+
+.top-brands-offers__brand {
+  min-width: 134px;
+  scroll-snap-align: start;
+}
+
+.top-brands-offers__rail-arrow {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  border: 1px solid rgba(218, 223, 240, 0.96);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.98);
+  color: var(--color-primary);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.2);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.top-brands-offers__rail-arrow--previous {
+  left: -20px;
+}
+
+.top-brands-offers__rail-arrow--next {
+  right: -20px;
+}
+
+.top-brands-offers__rail-arrow span {
+  font-size: 29px;
+  line-height: 1;
+}
+
+@media (max-width: 560px) {
+  .top-brands-offers__brands {
+    grid-auto-columns: 132px;
+  }
+
+  .top-brands-offers__rail-arrow {
+    display: none;
+  }
+}

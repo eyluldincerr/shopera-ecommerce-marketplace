@@ -1,0 +1,62 @@
+.buyer-account-page {
+  padding: 0;
+}
+
+.buyer-account-page__panel {
+  padding: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background-color: var(--color-white);
+  box-shadow: none;
+}
+
+.buyer-account-page__eyebrow {
+  margin: 0 0 8px;
+  color: var(--color-purple);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.buyer-account-page__panel h1 {
+  margin: 0;
+  color: #111a3a;
+  font-size: clamp(28px, 4vw, 34px);
+  font-weight: 800;
+}
+
+.buyer-account-page__panel p:last-child {
+  margin: 12px 0 0;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.buyer-account-page .buyer-account-page__panel,
+.profile-page .account-panel {
+  border: 1px solid #e2e6f0;
+  border-radius: 16px;
+  background: var(--color-white);
+  box-shadow: none;
+}
+
+.profile-page .account-panel {
+  padding: 26px;
+}
+
+.profile-page .account-panel h1 {
+  margin: 0;
+}
+
+.profile-page .account-panel > p {
+  margin: 10px 0 0;
+}
+
+@media (max-width: 620px) {
+  .buyer-account-page__panel {
+    padding: 18px;
+  }
+
+  .profile-page .account-panel {
+    padding: 18px;
+  }
+}

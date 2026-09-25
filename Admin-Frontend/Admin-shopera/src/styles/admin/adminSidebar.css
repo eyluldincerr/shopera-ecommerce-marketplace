@@ -1,0 +1,132 @@
+.shopera-admin-sidebar {
+  position: sticky;
+  top: var(--admin-header-height);
+  width: 235px;
+  min-width: 235px;
+  height: calc(100vh - var(--admin-header-height));
+  min-height: calc(100vh - var(--admin-header-height));
+  padding: 22px 12px;
+  background: #ffffff;
+  border-right: 1px solid #e7e9f2;
+  align-self: flex-start;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.admin-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-mobile-nav-backdrop,
+.admin-mobile-nav-heading {
+  display: none;
+}
+
+.admin-menu-item {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 8px;
+  color: #475274;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.admin-menu-item:hover {
+  color: #182cb3;
+  background: #f0f2ff;
+}
+
+.admin-menu-item-active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #263df2, #5146ed);
+}
+
+.admin-menu-item-active:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #263df2, #5146ed);
+}
+
+@media (max-width: 850px) {
+  .shopera-admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 302;
+    width: min(300px, calc(100vw - 48px));
+    min-width: 0;
+    height: 100dvh;
+    min-height: 0;
+    padding-top: 14px;
+    border-right: none;
+    box-shadow: 18px 0 45px rgba(9, 16, 48, 0.24);
+    overflow-y: auto;
+    transform: translateX(-105%);
+    visibility: hidden;
+    transition:
+      transform 0.22s ease,
+      visibility 0.22s ease;
+  }
+
+  .shopera-admin-sidebar-mobile-open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .admin-mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 301;
+    padding: 0;
+    border: none;
+    background: rgba(9, 16, 48, 0.48);
+    display: block;
+    cursor: default;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.22s ease,
+      visibility 0.22s ease;
+  }
+
+  .admin-mobile-nav-backdrop-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .admin-mobile-nav-heading {
+    min-height: 48px;
+    margin: 0 4px 12px;
+    padding: 0 10px 12px;
+    border-bottom: 1px solid #e7e9f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .admin-mobile-nav-heading strong {
+    color: #172044;
+    font-size: 15px;
+  }
+
+  .admin-mobile-nav-heading button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    border-radius: 9px;
+    color: #56617a;
+    background: #f0f2f6;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+  }
+}

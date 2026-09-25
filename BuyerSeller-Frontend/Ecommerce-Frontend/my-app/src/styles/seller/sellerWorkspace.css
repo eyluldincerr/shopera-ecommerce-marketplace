@@ -1,0 +1,133 @@
+@import "./sellerSidebar.css";
+@import "./sellerProducts.css";
+@import "./sellerInventory.css";
+@import "./sellerOrders.css";
+@import "./sellerAnalytics.css";
+@import "./sellerNotifications.css";
+@import "./sellerStoreProfile.css";
+@import "./sellerStorePreview.css";
+
+.seller-layout,
+.seller-dashboard-shell,
+.seller-products-content,
+.seller-inventory-content,
+.seller-orders-content,
+.seller-analytics-content,
+.seller-notifications-content,
+.seller-store-profile-content,
+.seller-store-preview {
+  box-sizing: border-box;
+}
+
+.seller-layout *,
+.seller-dashboard-shell *,
+.seller-products-content *,
+.seller-inventory-content *,
+.seller-orders-content *,
+.seller-analytics-content *,
+.seller-notifications-content *,
+.seller-store-profile-content *,
+.seller-store-preview * {
+  box-sizing: border-box;
+}
+
+.seller-products-content,
+.seller-inventory-content,
+.seller-orders-content,
+.seller-analytics-content,
+.seller-notifications-content,
+.seller-store-profile-content,
+.seller-store-preview,
+.seller-layout__content > .profile-page--seller {
+  padding: 32px;
+}
+
+.seller-layout__content > .profile-page--seller {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+}
+
+.navbar--seller .navbar__container {
+  width: min(1450px, calc(100% - 64px));
+}
+
+.seller-async-state {
+  display: grid;
+  min-height: 260px;
+  place-content: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.seller-async-state h1,
+.seller-async-state p {
+  margin: 0;
+}
+
+.seller-async-state button,
+.seller-async-state a {
+  justify-self: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #3028c9;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+}
+
+.seller-async-state__spinner {
+  width: 30px;
+  height: 30px;
+  justify-self: center;
+  border: 3px solid #deddf7;
+  border-top-color: #3028c9;
+  border-radius: 50%;
+  animation: seller-async-spin 700ms linear infinite;
+}
+
+@keyframes seller-async-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (max-width: 760px) {
+  .seller-products-content,
+  .seller-inventory-content,
+  .seller-orders-content,
+  .seller-analytics-content,
+  .seller-notifications-content,
+  .seller-store-profile-content,
+  .seller-store-preview,
+  .seller-layout__content > .profile-page--seller {
+    padding: 24px 20px;
+  }
+
+  .navbar--seller .navbar__container {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 500px) {
+  .seller-layout__content {
+    min-width: 0;
+  }
+
+  .seller-products-content,
+  .seller-inventory-content,
+  .seller-orders-content,
+  .seller-analytics-content,
+  .seller-notifications-content,
+  .seller-store-profile-content,
+  .seller-store-preview,
+  .seller-layout__content > .profile-page--seller {
+    padding: 18px 14px 28px;
+  }
+
+  .navbar--seller .navbar__container {
+    width: calc(100% - 28px);
+  }
+}

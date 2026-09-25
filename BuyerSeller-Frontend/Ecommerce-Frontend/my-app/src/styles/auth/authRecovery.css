@@ -1,0 +1,54 @@
+.auth-recovery-page .signin-panel {
+  width: min(100%, 430px);
+}
+
+.auth-recovery-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #fff0e8, #eee8ff, #e5fbfd);
+  color: #151f9c;
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.auth-recovery-page .signin-heading p {
+  margin-top: 8px;
+  color: #667085;
+  line-height: 1.45;
+}
+
+.auth-recovery-page .auth-message {
+  margin: 0 0 16px;
+}
+
+.auth-message--success {
+  border-color: #a7e8c3;
+  background: #effcf4;
+  color: #087537;
+}
+
+.auth-recovery-result {
+  display: grid;
+  gap: 14px;
+}
+
+.auth-recovery-result .signin-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.auth-recovery-back {
+  justify-self: center;
+  margin-top: 17px;
+  color: #714dff;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

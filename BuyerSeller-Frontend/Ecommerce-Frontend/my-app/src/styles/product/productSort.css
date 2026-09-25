@@ -1,0 +1,36 @@
+/* src/styles/product/productSort.css */
+
+.product-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.product-sort select {
+  min-height: 40px;
+  min-width: 170px;
+  max-width: 100%;
+  border: 1px solid rgba(9, 191, 208, 0.45);
+  border-radius: var(--radius-button);
+  background: var(--color-white);
+  color: var(--color-primary);
+  cursor: pointer;
+  font: inherit;
+  padding: 0 12px;
+}
+
+@media (max-width: 520px) {
+  .product-sort {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .product-sort select {
+    min-width: 0;
+    width: min(190px, 60vw);
+  }
+}

@@ -1,0 +1,5 @@
+/* src/styles/catalog/collectionPage.css */
+
+.collection-page .catalog-page__header {
+  border-color: rgba(145, 75, 255, 0.16);
+}

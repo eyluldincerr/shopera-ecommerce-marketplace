@@ -1,0 +1,81 @@
+# React / Vite
+node_modules/
+dist/
+dist-ssr/
+.vite/
+.npm/
+.pnpm-store/
+
+# .NET / Visual Studio
+**/[Bb]in/
+**/[Oo]bj/
+.vs/
+artifacts/
+TestResults/
+*.user
+*.suo
+*.rsuser
+*.userosscache
+*.sln.docstates
+*.pubxml
+*.publishsettings
+PublishProfiles/
+
+# Private configuration: only sanitized examples may be committed
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+appsettings.Local.json
+appsettings.*.local.json
+secrets.json
+*.pfx
+*.p12
+*.pem
+*.key
+*.cer
+*.crt
+*.snk
+*.credentials
+
+# Logs, caches, temporary output and coverage
+logs/
+*.log
+*.binlog
+*.cache
+.cache/
+coverage/
+.nyc_output/
+*.coverage
+*.coveragexml
+*.trx
+*.tmp
+*.temp
+*.bak
+__pycache__/
+*.pyc
+
+# Editor and OS state
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.history/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo
+
+# Local databases and inventories
+*.mdf
+*.ldf
+*.ndf
+structure.txt
+files.txt
+folders.txt
+
+# Internal handoff material
+README_COMPANY_HANDOFF.md
+SOURCE_PACKAGE_MANIFEST.txt

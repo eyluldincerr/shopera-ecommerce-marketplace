@@ -1,0 +1,332 @@
+.orders-page {
+  background: #f6f7fb;
+}
+
+.orders-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.orders-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-width: 0;
+  margin-bottom: 18px;
+}
+
+.orders-header h1 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.orders-header p {
+  margin: 6px 0 0;
+  color: #72798b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.orders-primary-link,
+.orders-empty a,
+.order-row__actions button,
+.order-detail-actions a,
+.order-detail-actions button {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.orders-primary-link,
+.orders-empty a,
+.order-detail-actions a,
+.order-detail-actions button:not(.order-detail-actions__cancel):not(.order-detail-actions__archive) {
+  border: 0;
+  background: linear-gradient(135deg, #ff7a21, #914bff, #09bfd0);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(83, 84, 205, 0.22);
+}
+
+.orders-filters {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.orders-filters button {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid #dfe3f1;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #626a87;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.orders-filters button.is-active,
+.orders-filters button:hover {
+  border-color: #914bff;
+  background: #f3efff;
+  color: #6c46ff;
+}
+
+.orders-list {
+  display: grid;
+  gap: 12px;
+}
+
+.order-row,
+.orders-empty {
+  border: 1px solid #e1e4ee;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.06);
+}
+
+.order-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.4fr) minmax(120px, 0.7fr) minmax(170px, 0.8fr) auto;
+  gap: 18px;
+  align-items: center;
+  min-width: 0;
+  padding: 18px 20px;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.order-row:hover {
+  transform: translateY(-1px);
+  border-color: rgba(145, 75, 255, 0.28);
+  box-shadow: 0 8px 20px rgba(22, 28, 57, 0.07);
+}
+
+.order-row__label,
+.order-row small,
+.order-row__meta span {
+  color: #72798b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.order-row__main strong {
+  display: block;
+  margin: 4px 0;
+  color: #111a3a;
+  font-size: 16px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.order-row__meta strong {
+  display: block;
+  margin-top: 5px;
+  color: #18203a;
+  font-size: 17px;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.order-row__status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.order-status,
+.order-payment-status,
+.order-shipment-status {
+  max-width: 100%;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.order-status--pending {
+  background: #eef2ff;
+  color: #3346d3;
+}
+
+.order-status--confirmed {
+  background: #eefaff;
+  color: #007b90;
+}
+
+.order-status--processing {
+  background: #fff6e8;
+  color: #aa5c00;
+}
+
+.order-status--shipped {
+  background: #f3efff;
+  color: #6c46ff;
+}
+
+.order-status--delivered {
+  background: #effcf4;
+  color: #087537;
+}
+
+.order-status--cancelled,
+.order-status--returned {
+  background: #fff1f3;
+  color: #b42332;
+}
+
+.order-payment-status {
+  background: #eefaff;
+  color: #007b90;
+}
+
+.order-shipment-status {
+  background: #f3efff;
+  color: #6c46ff;
+}
+
+.order-row__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.order-row__actions button {
+  border: 1px solid #dfe3f1;
+  background: #ffffff;
+  color: #626a87;
+}
+
+.order-row__actions button:hover {
+  border-color: #914bff;
+  color: #914bff;
+}
+
+.order-row__actions .order-row__cancel {
+  border-color: #ffd2d8;
+  color: #d82b45;
+}
+
+.order-row__actions .order-row__archive {
+  border-color: #d9ddeb;
+  background: #f8f9fc;
+  color: #50586f;
+}
+
+.order-row__actions .order-row__archive:hover {
+  border-color: #7c5cff;
+  color: #6c46ff;
+}
+
+.orders-empty {
+  width: 100%;
+  max-width: 100%;
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  padding: 40px 24px;
+  color: #72798b;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.orders-empty--small {
+  min-height: 150px;
+}
+
+.orders-empty__icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff7a21, #914bff, #09bfd0);
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.orders-empty h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.orders-empty p {
+  margin: 0;
+  color: #72798b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.profile-page .order-row:hover {
+  transform: translateY(-1px);
+  border-color: rgba(145, 75, 255, 0.28);
+  box-shadow: 0 8px 20px rgba(22, 28, 57, 0.07);
+}
+
+.profile-page .order-row__actions .order-row__archive {
+  border-color: #d9deea;
+  background: #f7f8fb;
+  color: #50586f;
+}
+
+.profile-page .order-row__actions .order-row__archive:hover:not(:disabled) {
+  border-color: #bfb2e7;
+  background: #f7f5ff;
+  color: #49258f;
+}
+
+@media (max-width: 1080px) {
+  .order-row {
+    grid-template-columns: minmax(0, 1fr) minmax(min(140px, 100%), auto);
+  }
+
+  .order-row__actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .orders-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .orders-primary-link {
+    width: 100%;
+  }
+
+  .order-row {
+    grid-template-columns: 1fr;
+  }
+
+  .order-row__actions,
+  .order-row__actions button {
+    width: 100%;
+  }
+}

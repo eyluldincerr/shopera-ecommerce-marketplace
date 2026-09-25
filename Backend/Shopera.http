@@ -1,0 +1,57 @@
+@Shopera_HostAddress = http://localhost:5208
+@AdminAccessToken = paste-admin-jwt-here
+@RecipientAccessToken = paste-recipient-jwt-here
+@StoreId = 1
+@RecipientUserId = 2
+
+### List pending seller stores
+GET {{Shopera_HostAddress}}/api/admin/stores?approvalStatus=PENDING&page=1&pageSize=20
+Authorization: Bearer {{AdminAccessToken}}
+
+### Search dynamic notification recipients
+GET {{Shopera_HostAddress}}/api/admin/notification-recipients?search=&role=SELLER&page=1&pageSize=20
+Authorization: Bearer {{AdminAccessToken}}
+
+### Approve a pending store
+PATCH {{Shopera_HostAddress}}/api/admin/stores/{{StoreId}}/approve
+Authorization: Bearer {{AdminAccessToken}}
+Content-Type: application/json
+
+{
+  "decisionNote": "Store details verified."
+}
+
+### Reject a pending store
+PATCH {{Shopera_HostAddress}}/api/admin/stores/{{StoreId}}/reject
+Authorization: Bearer {{AdminAccessToken}}
+Content-Type: application/json
+
+{
+  "decisionNote": "Please provide valid store information."
+}
+
+### Send a dynamic notification to one user
+POST {{Shopera_HostAddress}}/api/admin/notifications
+Authorization: Bearer {{AdminAccessToken}}
+Content-Type: application/json
+
+{
+  "recipientUserId": {{RecipientUserId}},
+  "title": "Account update",
+  "message": "Your Shopera account information was reviewed."
+}
+
+### Send a dynamic notification to a store owner
+POST {{Shopera_HostAddress}}/api/admin/notifications
+Authorization: Bearer {{AdminAccessToken}}
+Content-Type: application/json
+
+{
+  "storeId": {{StoreId}},
+  "title": "Store update",
+  "message": "There is an update for your store."
+}
+
+### Read the recipient's saved notifications
+GET {{Shopera_HostAddress}}/api/notifications
+Authorization: Bearer {{RecipientAccessToken}}

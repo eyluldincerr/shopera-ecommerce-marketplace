@@ -1,0 +1,10 @@
+@import "./styles/variables.css";
+@import "./styles/global.css";
+
+@import "./styles/admin/adminDashboard.css";
+@import "./styles/admin/adminSidebar.css";
+@import "./styles/admin/adminHeader.css";
+@import "./styles/admin/adminTable.css";
+@import "./styles/admin/adminModal.css";
+@import "./styles/admin/adminPages.css";
+@import "./styles/admin/adminPromotions.css";

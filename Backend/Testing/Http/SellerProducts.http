@@ -1,0 +1,182 @@
+@Shopera_HostAddress = http://localhost:5208
+@SellerUserId = 3
+@CategoryId = 1
+@ProductId = 1
+@ImageId = 1
+@VariantId = 1
+# Copy the latest Base64 rowVersion returned by a Seller variant response.
+@RowVersion = AQ==
+
+### List my products with paging, search, and status filter
+GET {{Shopera_HostAddress}}/api/seller/products?page=1&pageSize=50&search=&status=
+X-Seller-User-Id: {{SellerUserId}}
+
+### Create one complete product aggregate (always starts DRAFT)
+POST {{Shopera_HostAddress}}/api/seller/products
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "productName": "Shopera Pro Laptop",
+  "shortDescription": "A business laptop with configurable memory.",
+  "description": "Full buyer-facing product description.",
+  "brand": "Shopera",
+  "modelNumber": "SP-2026",
+  "productCondition": "NEW",
+  "conditionDescription": null,
+  "categoryId": {{CategoryId}},
+  "information": {
+    "productDetails": {
+      "items": [
+        { "label": "Material", "value": "Aluminium" }
+      ]
+    },
+    "specifications": {
+      "groups": [
+        {
+          "name": "Performance",
+          "items": [
+            { "label": "Processor", "value": "8-core" }
+          ]
+        }
+      ]
+    },
+    "whatsInTheBox": {
+      "items": ["Laptop", "Charger", "Quick-start guide"]
+    },
+    "warrantyInformation": "Two-year limited warranty.",
+    "returnPolicy": "Return within 30 days.",
+    "careInstructions": "Keep dry and use the supplied charger.",
+    "additionalInformation": "Energy-efficient packaging."
+  },
+  "images": [
+    {
+      "imageUrl": "https://cdn.example.test/products/sp-2026-front.jpg",
+      "altText": "Shopera Pro Laptop front view",
+      "displayOrder": 1,
+      "isPrimary": true
+    },
+    {
+      "imageUrl": "https://cdn.example.test/products/sp-2026-side.jpg",
+      "altText": "Shopera Pro Laptop side view",
+      "displayOrder": 2,
+      "isPrimary": false
+    }
+  ],
+  "variants": [
+    {
+      "sku": "SP-2026-16-512",
+      "variantName": "16GB / 512GB",
+      "storageCapacity": "512GB",
+      "price": 1099.00,
+      "costPrice": 760.00,
+      "stockQuantity": 15,
+      "status": "ACTIVE"
+    }
+  ]
+}
+
+### Read the full seller view (includes confidential cost and rowVersion)
+GET {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}
+X-Seller-User-Id: {{SellerUserId}}
+
+### Paged inventory rows with ProductID and exact VariantID
+GET {{Shopera_HostAddress}}/api/seller/products/inventory?page=1&pageSize=50&search=&categoryId={{CategoryId}}&stockStatus=IN_STOCK
+X-Seller-User-Id: {{SellerUserId}}
+
+### Update product core fields or category
+PATCH {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "shortDescription": "Updated buyer-facing summary.",
+  "categoryId": {{CategoryId}}
+}
+
+### Replace the one-to-one PRODUCT_INFO section
+PUT {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/info
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "productDetails": { "items": [] },
+  "specifications": { "groups": [] },
+  "whatsInTheBox": { "items": ["Product", "Manual"] },
+  "warrantyInformation": "Two years."
+}
+
+### Add an image
+POST {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "imageUrl": "https://cdn.example.test/products/sp-2026-back.jpg",
+  "altText": "Back view",
+  "displayOrder": 3,
+  "isPrimary": false
+}
+
+### Change order or make an image primary
+PATCH {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images/{{ImageId}}
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "altText": "Updated accessible description",
+  "isPrimary": true
+}
+
+### Add a globally unique SKU
+POST {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/variants
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "sku": "SP-2026-32-1TB",
+  "variantName": "32GB / 1TB",
+  "storageCapacity": "1TB",
+  "price": 1399.00,
+  "costPrice": 930.00,
+  "stockQuantity": 5,
+  "status": "ACTIVE"
+}
+
+### Update stock, price, cost, or options with optimistic concurrency
+PATCH {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/variants/{{VariantId}}
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "price": 1049.00,
+  "costPrice": 745.00,
+  "stockQuantity": 12,
+  "rowVersion": "{{RowVersion}}"
+}
+
+### Publish after primary image and active/out-of-stock variant exist
+PATCH {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/status
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "status": "ACTIVE"
+}
+
+### Soft-delete a variant because ORDER_ITEM may reference it
+DELETE {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/variants/{{VariantId}}
+X-Seller-User-Id: {{SellerUserId}}
+Content-Type: application/json
+
+{
+  "rowVersion": "{{RowVersion}}"
+}
+
+### Delete an image; the next image is promoted if primary
+DELETE {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}/images/{{ImageId}}
+X-Seller-User-Id: {{SellerUserId}}
+
+### Soft-delete the product and its variants
+DELETE {{Shopera_HostAddress}}/api/seller/products/{{ProductId}}
+X-Seller-User-Id: {{SellerUserId}}

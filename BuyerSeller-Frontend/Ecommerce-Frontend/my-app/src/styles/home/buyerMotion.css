@@ -1,0 +1,499 @@
+/* ==========================================================
+   Shopera Buyer motion layer
+   Motion only: no layout, typography, data, routing or API changes.
+   Inspired by the restrained swipe/orbit rhythm in Jitter references
+   and compositor-friendly CSS animation guidance from FreeFrontend.
+   ========================================================== */
+
+/* Hero slide transition: a soft directional swipe rather than a hard cut. */
+.hero-slide--motion-next {
+  animation: shoperaHeroSwipeNext 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-slide--motion-previous {
+  animation: shoperaHeroSwipePrevious 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-slide--motion-next .hero-slide-content > *,
+.hero-slide--motion-previous .hero-slide-content > * {
+  opacity: 0;
+  animation: shoperaHeroCopyIn 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-slide--motion-next .hero-slide-kicker,
+.hero-slide--motion-previous .hero-slide-kicker {
+  animation-delay: 90ms;
+}
+
+.hero-slide--motion-next .hero-slide-content h1,
+.hero-slide--motion-previous .hero-slide-content h1 {
+  animation-delay: 145ms;
+}
+
+.hero-slide--motion-next .hero-slide-content p,
+.hero-slide--motion-previous .hero-slide-content p {
+  animation-delay: 205ms;
+}
+
+.hero-slide--motion-next .hero-slide-button,
+.hero-slide--motion-previous .hero-slide-button {
+  animation-delay: 265ms;
+}
+
+.hero-slide--motion-next .hero-slide-visual,
+.hero-slide--motion-previous .hero-slide-visual {
+  animation: shoperaHeroVisualIn 720ms cubic-bezier(0.22, 1, 0.36, 1) 60ms both;
+}
+
+/* Shopera-owned artwork gets a very slow cinematic drift. Admin-uploaded
+   promotion artwork stays still so campaign graphics/text are never distorted. */
+.hero-slide--static-image .hero-static-image {
+  transform: scale(1.012);
+  transform-origin: 64% 50%;
+  animation: shoperaHeroImageDrift 11s ease-in-out infinite alternate;
+  backface-visibility: hidden;
+}
+
+/* Small premium shine on the hero CTA. */
+.hero-slide-button {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-slide-button::before {
+  content: "";
+  position: absolute;
+  inset: -35% auto -35% -42%;
+  width: 34%;
+  z-index: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.34), transparent);
+  transform: skewX(-18deg) translateX(-220%);
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.hero-slide-button:hover::before,
+.hero-slide-button:focus-visible::before {
+  transform: skewX(-18deg) translateX(560%);
+}
+
+/* The active carousel indicator breathes once when a slide changes. */
+.hero-dots button.is-active {
+  animation: shoperaDotSettle 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Category cards keep the same design; only a light sweep is added on intent. */
+.home-category-rail__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  background: linear-gradient(108deg, transparent 28%, rgba(255, 255, 255, 0.26) 48%, transparent 68%);
+  opacity: 0;
+  transform: translateX(-72%);
+  transition:
+    opacity 180ms ease,
+    transform 680ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.home-category-rail__card:hover::after,
+.home-category-rail__card:focus-visible::after {
+  opacity: 1;
+  transform: translateX(72%);
+}
+
+/* Scroll-safety fix:
+   Do not bind content visibility to the page scroll position.
+   Scroll-driven opacity animations can make sections disappear when the user
+   changes browser zoom or scrolls back upward. All homepage sections remain
+   fully visible; motion is now limited to hero transitions and user intent. */
+.buyer-home-page .home-category-rail,
+.buyer-home-page .top-brands-offers,
+.buyer-home-page .product-section {
+  opacity: 1;
+  animation: none;
+}
+
+@keyframes shoperaHeroSwipeNext {
+  from {
+    opacity: 0.78;
+    transform: translate3d(18px, 0, 0) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes shoperaHeroSwipePrevious {
+  from {
+    opacity: 0.78;
+    transform: translate3d(-18px, 0, 0) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes shoperaHeroCopyIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes shoperaHeroVisualIn {
+  from {
+    opacity: 0.62;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shoperaHeroImageDrift {
+  from {
+    transform: scale(1.012) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.028) translate3d(-0.35%, -0.25%, 0);
+  }
+}
+
+@keyframes shoperaDotSettle {
+  0% {
+    transform: scaleX(0.72);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Accessibility: motion-sensitive users keep the exact same UI without motion. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide--motion-next,
+  .hero-slide--motion-previous,
+  .hero-slide--motion-next .hero-slide-content > *,
+  .hero-slide--motion-previous .hero-slide-content > *,
+  .hero-slide--motion-next .hero-slide-visual,
+  .hero-slide--motion-previous .hero-slide-visual,
+  .hero-slide--static-image .hero-static-image,
+  .hero-dots button.is-active,
+  .buyer-home-page .home-category-rail,
+  .buyer-home-page .top-brands-offers,
+  .buyer-home-page .product-section {
+    animation: none !important;
+  }
+
+  .hero-slide-button::before,
+  .home-category-rail__card::after {
+    display: none;
+  }
+
+  .home-category-rail__track,
+  .product-section__track,
+  .top-brands-offers__brands {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================
+   Shopera Buyer motion layer — final micro-interaction pass
+   Keeps layout/data untouched. Effects are intent-driven and subtle.
+   ========================================================== */
+
+/* Store Stories: a short orbit-ring response inspired by social-story motion.
+   It activates only on hover/focus, so the row never becomes visually noisy. */
+.store-stories__avatar {
+  position: relative;
+  isolation: isolate;
+}
+
+.store-stories__avatar::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border: 2px solid transparent;
+  border-top-color: rgba(113, 82, 244, 0.95);
+  border-right-color: rgba(20, 166, 193, 0.68);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.store-stories__avatar img,
+.store-stories__avatar > span {
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Brands/offers: light sweep only on user intent. */
+.top-brands-offers__brand,
+.top-brands-offers__offer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.top-brands-offers__brand::after,
+.top-brands-offers__offer::before {
+  content: "";
+  position: absolute;
+  inset: -30% auto -30% -44%;
+  width: 32%;
+  z-index: 2;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.46), transparent);
+  transform: skewX(-18deg) translateX(-230%);
+  transition: transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.top-brands-offers__brand > *,
+.top-brands-offers__offer > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* Product cards: premium reflection and tactile action feedback without changing layout. */
+.product-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: inherit;
+  background: linear-gradient(110deg, transparent 22%, rgba(255, 255, 255, 0.2) 45%, transparent 68%);
+  opacity: 0;
+  transform: translateX(-78%);
+  transition:
+    opacity 180ms ease,
+    transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.wishlist-toggle span,
+.product-card__quick-add span,
+.product-card__open span,
+.home-category-rail__view-all span,
+.home-category-rail__card-arrow {
+  display: inline-block;
+  transform-origin: center;
+}
+
+.wishlist-toggle span {
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wishlist-toggle--active span {
+  animation: shoperaHeartPop 430ms cubic-bezier(0.2, 1.55, 0.35, 1) both;
+}
+
+.product-card__quick-add span,
+.product-card__open span,
+.home-category-rail__view-all span {
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Category text-only cards get gentle depth rather than a repeated photo. */
+.home-category-rail__text-art::before,
+.home-category-rail__text-art::after {
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* All Stores: keep existing card design; animate only decorative surfaces. */
+.store-directory__card {
+  position: relative;
+  isolation: isolate;
+}
+
+.store-directory__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+  background: linear-gradient(112deg, transparent 25%, rgba(255, 255, 255, 0.22) 48%, transparent 70%);
+  opacity: 0;
+  transform: translateX(-82%);
+  transition:
+    opacity 180ms ease,
+    transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.store-directory__banner-fallback::before,
+.store-directory__banner-fallback::after,
+.store-directory__banner-fallback > span {
+  transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Fine-pointer interactions only. Touch remains calm and predictable. */
+@media (hover: hover) and (pointer: fine) {
+  .store-stories__card:hover .store-stories__avatar::before,
+  .store-stories__card:focus-visible .store-stories__avatar::before {
+    opacity: 1;
+    animation: shoperaStoryOrbit 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .store-stories__card:hover .store-stories__avatar img,
+  .store-stories__card:hover .store-stories__avatar > span,
+  .store-stories__card:focus-visible .store-stories__avatar img,
+  .store-stories__card:focus-visible .store-stories__avatar > span {
+    transform: scale(1.035);
+  }
+
+  .top-brands-offers__brand:hover::after,
+  .top-brands-offers__brand:focus-visible::after,
+  .top-brands-offers__offer:hover::before,
+  .top-brands-offers__offer:focus-visible::before {
+    transform: skewX(-18deg) translateX(600%);
+  }
+
+  .product-card:hover::after,
+  .product-card:focus-within::after {
+    opacity: 0.88;
+    transform: translateX(78%);
+  }
+
+  .wishlist-toggle:hover span,
+  .wishlist-toggle:focus-visible span {
+    transform: scale(1.12) rotate(-5deg);
+  }
+
+  .product-card__open:hover span,
+  .product-card__open:focus-visible span,
+  .home-category-rail__view-all:hover span,
+  .home-category-rail__view-all:focus-visible span {
+    transform: translateX(4px);
+  }
+
+  .product-card__quick-add:hover span,
+  .product-card__quick-add:focus-visible span {
+    transform: scale(1.08) rotate(90deg);
+  }
+
+  .home-category-rail__card--text:hover .home-category-rail__text-art::before,
+  .home-category-rail__card--text:focus-visible .home-category-rail__text-art::before {
+    transform: translate3d(-10px, 8px, 0) scale(1.04);
+  }
+
+  .home-category-rail__card--text:hover .home-category-rail__text-art::after,
+  .home-category-rail__card--text:focus-visible .home-category-rail__text-art::after {
+    transform: translate3d(8px, -7px, 0) scale(1.05);
+  }
+
+  .store-directory__card:hover::after,
+  .store-directory__card:focus-within::after {
+    opacity: 0.82;
+    transform: translateX(82%);
+  }
+
+  .store-directory__card:hover .store-directory__banner-fallback::before,
+  .store-directory__card:focus-within .store-directory__banner-fallback::before {
+    transform: translate3d(-10px, 12px, 0) rotate(7deg);
+  }
+
+  .store-directory__card:hover .store-directory__banner-fallback::after,
+  .store-directory__card:focus-within .store-directory__banner-fallback::after {
+    transform: translate3d(9px, -8px, 0) scale(1.05);
+  }
+
+  .store-directory__card:hover .store-directory__banner-fallback > span,
+  .store-directory__card:focus-within .store-directory__banner-fallback > span {
+    transform: translate3d(5px, -4px, 0) rotate(28deg) scale(1.06);
+  }
+}
+
+/* Tactile press feedback. */
+.product-card__quick-add:active span {
+  animation: shoperaQuickAddPulse 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Store cards must never disappear based on scroll position or zoom. */
+.store-directory__card {
+  opacity: 1;
+  translate: none;
+  animation: none;
+}
+
+@keyframes shoperaStoryOrbit {
+  0% {
+    opacity: 0;
+    transform: rotate(-55deg) scale(0.94);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.82;
+    transform: rotate(305deg) scale(1);
+  }
+}
+
+@keyframes shoperaHeartPop {
+  0% {
+    transform: scale(0.72) rotate(-9deg);
+  }
+  48% {
+    transform: scale(1.28) rotate(4deg);
+  }
+  72% {
+    transform: scale(0.94) rotate(-2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes shoperaQuickAddPulse {
+  0% {
+    transform: scale(1) rotate(90deg);
+  }
+  50% {
+    transform: scale(0.78) rotate(135deg);
+  }
+  100% {
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* Extend reduced-motion coverage to every effect added in this pass. */
+@media (prefers-reduced-motion: reduce) {
+  .store-stories__avatar::before,
+  .wishlist-toggle--active span,
+  .product-card__quick-add:active span,
+  .store-directory__card {
+    animation: none !important;
+  }
+
+  .top-brands-offers__brand::after,
+  .top-brands-offers__offer::before,
+  .product-card::after,
+  .store-directory__card::after,
+  .store-stories__avatar::before {
+    display: none !important;
+  }
+
+  .store-stories__avatar img,
+  .store-stories__avatar > span,
+  .wishlist-toggle span,
+  .product-card__quick-add span,
+  .product-card__open span,
+  .home-category-rail__view-all span,
+  .home-category-rail__text-art::before,
+  .home-category-rail__text-art::after,
+  .store-directory__banner-fallback::before,
+  .store-directory__banner-fallback::after,
+  .store-directory__banner-fallback > span {
+    transition: none !important;
+    transform: none !important;
+  }
+}
