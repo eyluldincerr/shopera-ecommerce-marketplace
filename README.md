@@ -1,28 +1,52 @@
 # Shopera — E-Commerce Marketplace
 
-<img src="design/branding/shopera-logo-marketplace.png" alt="Shopera logo" width="600">
+<!-- Optional README logo: after adding the original dark-wordmark export at
+design/branding/shopera-logo-readme.png, uncomment the image below.
+The existing application logo assets remain unchanged.
+<img src="design/branding/shopera-logo-readme.png" alt="Shopera logo" width="600">
+-->
 
 **Seller Frontend Development · UI/Visual Design · React · Figma**
 
-Shopera is an e-commerce marketplace developed during my Software Engineering internship at **Analiz Systems**. As part of the project team, I focused on designing and developing the Seller experience—from Shopera's visual identity and Figma interfaces to React tools for products, inventory, orders, analytics and store management.
+Shopera is an e-commerce marketplace developed during my Software Engineering internship at **Analiz Systems**. As part of the project team, I designed Shopera's visual identity and marketplace interfaces in Figma for desktop and mobile. My primary coding responsibility was the Seller frontend in React, including its integration with supporting APIs and services.
 
 **My Role — Seller Frontend Developer & UI/Visual Designer**
 
-My primary contribution combined Seller frontend development with UI and visual design. [View detailed contributions and team attribution →](MY_CONTRIBUTION.md)
+[View detailed contributions and team attribution →](MY_CONTRIBUTION.md)
 
 ## My Contribution
 
 ### 🎨 Design & Visual Identity
 
-- **Shopera logo:** the shopping-cart symbol and wordmark.
-- **Visual identity:** color and branding across the interface.
-- **Figma UI design:** interface layouts and UI elements.
-- **UI direction:** contributions to the project's visual language.
-- **Design to code:** bringing interface designs into the React Seller experience.
+- **Shopera logo:** designed the shopping-cart symbol and wordmark.
+- **Visual identity:** established the color and branding direction.
+- **Marketplace UI in Figma:** designed desktop and mobile interfaces across Shopera.
+- **UI elements:** designed the elements used throughout the marketplace interfaces.
+- **Visual direction:** established the visual language and interface direction used by the development team.
 
 ### 💻 Seller Frontend Development
 
 I worked on seven connected areas of the Seller workspace: **Dashboard, Products, Inventory, Orders, Analytics, Store Profile and Notifications**, including their integration with supporting APIs and services.
+
+## UI Design in Figma
+
+Alongside Shopera's visual identity, I designed the marketplace interfaces in Figma across desktop and mobile. These designs established the layouts, visual hierarchy, navigation patterns and UI direction used by the development team when implementing the application.
+
+### Desktop Experience
+
+<!-- After adding the real Figma export, uncomment this image and its caption.
+<img src="design/figma-exports/shopera-desktop-ui.png" alt="Shopera desktop marketplace UI designs created in Figma" width="1200">
+
+*Shopera's desktop marketplace UI designs, created in Figma.*
+-->
+
+### Mobile Experience
+
+<!-- After adding the real Figma export, uncomment this image and its caption.
+<img src="design/figma-exports/shopera-mobile-ui.png" alt="Shopera mobile UI designs and responsive design direction created in Figma" width="1200">
+
+*Shopera's mobile UI designs and responsive design direction, created in Figma.*
+-->
 
 ## The Seller Experience
 
@@ -70,16 +94,6 @@ Categorized updates with unread indicators, mark-read actions and links to relat
 <!-- Add real Notifications screenshot here: docs/screenshots/seller-notifications.webp -->
 
 [Explore the Seller frontend →](BuyerSeller-Frontend/Ecommerce-Frontend/my-app/src/pages/seller)
-
-## From Figma to React
-
-**Figma Design → Final React Implementation**
-
-My work connected interface design with implementation: shaping layouts and UI elements in Figma, then translating them into the Seller workspace in React.
-
-<!-- Add matching, original Figma and React captures below, side by side or sequentially.
-Use the same Seller screen and add a short caption explaining a concrete design decision.
-Add the approved view-only Figma link when supplied. -->
 
 ## Technical Highlights
 

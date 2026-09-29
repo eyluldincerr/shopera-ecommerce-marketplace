@@ -2,18 +2,20 @@
 
 **Seller Frontend Developer & UI/Visual Designer**
 
-Shopera was developed collaboratively during my Software Engineering internship. This document distinguishes my declared contribution from the shared source retained for context. The final source package identifies implementation locations; it does not establish line-by-line authorship or reconstruct commit history.
+Shopera was a team project during my Software Engineering internship at Analiz Systems. I designed the marketplace interfaces in Figma across desktop and mobile, alongside the logo and visual identity. Separately, my primary coding responsibility was the Seller frontend in React and its API/service integration.
 
 ## Designed by me
 
 - Shopera logo.
-- Contributions to visual identity and visual direction.
-- Figma interface layouts and UI elements.
-- Design-to-development work for the Seller experience.
+- Visual identity.
+- Marketplace interfaces in Figma.
+- Desktop UI layouts, visual hierarchy and navigation patterns.
+- Mobile UI layouts and responsive/mobile design direction.
+- UI elements and visual direction used by the development team to implement the application.
 
 The logo files supplied in both applications are preserved in [design/branding](design/branding/README.md). Hash comparison confirms that these are identical exports, not distinct color variants. Figma exports, process images and comparisons are pending. Other bundled photographs, category images, banners and icons are not automatically claimed as my original artwork.
 
-## Implemented by me
+## Developed by me
 
 My primary development responsibility was the Seller frontend, specifically these areas:
 
@@ -40,17 +42,18 @@ I worked on connecting the Seller frontend to supporting APIs/services for produ
 
 Integration with these services does not imply that I authored all of them or their backend implementations.
 
-## Team/shared implementation
+## Team implementation
 
-The repository preserves the Buyer frontend, Admin frontend, backend APIs, authentication, database mappings, notification infrastructure, shared components and tests needed to understand the application as a team project. Their inclusion is not a personal authorship claim.
+The development team implemented the marketplace designs in the application. Buyer/Admin frontend development, backend APIs and other implementation outside my documented Seller responsibility belong to the team implementation. My design work across those interfaces is distinct from their coding implementation.
+
+Shared authentication, database mappings, notification infrastructure, components and tests are retained to show how the Seller frontend integrates with the application.
 
 Store Media and Store Preview are retained because they are part of the supplied application. They are not listed as my personal implementation contributions.
 
 The original frontend overview lists **Aytuğ, Eylül, Maaz, Ehsan and Keymanesh**. The original backend overview lists **Ehsan, Keymanesh and Maaz**. These credits are preserved as supplied; no additional assignment of individual responsibilities is inferred from them.
 
-## Evidence and publication status
+## Supporting material
 
-- Source links demonstrate the final implementation, not a fabricated development timeline.
-- Figma evidence and screenshots will be provided later.
-- No Git history has been created or rewritten for this preparation.
-- No license has been added. Confirm publication permission and credit/asset details before making the project public.
+- Source links identify the documented Seller implementation areas.
+- Original desktop/mobile Figma boards will be added to the design showcase separately.
+- No license has been added.
