@@ -34,19 +34,15 @@ Alongside Shopera's visual identity, I designed the marketplace interfaces in Fi
 
 ### Desktop Experience
 
-<!-- After adding the real Figma export, uncomment this image and its caption.
 <img src="design/figma-exports/shopera-desktop-ui.png" alt="Shopera desktop marketplace UI designs created in Figma" width="1200">
 
 *Shopera's desktop marketplace UI designs, created in Figma.*
--->
 
 ### Mobile Experience
 
-<!-- After adding the real Figma export, uncomment this image and its caption.
 <img src="design/figma-exports/shopera-mobile-ui.png" alt="Shopera mobile UI designs and responsive design direction created in Figma" width="1200">
 
 *Shopera's mobile UI designs and responsive design direction, created in Figma.*
--->
 
 ## The Seller Experience
 
